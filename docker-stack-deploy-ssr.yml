@@ -1,0 +1,14 @@
+version: "3.8"
+
+networks:
+    default:
+        external: true
+        name: vira-network
+
+services:
+    front-end-ssr:
+        image: front-end-ssr:${TAG_NAME}
+        deploy:
+            replicas: ${REPLICAS}
+        ports:
+          - "0.0.0.0:8083:3000"

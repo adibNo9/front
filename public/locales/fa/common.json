@@ -1,0 +1,16 @@
+{
+  "dashboard": {
+    "header": {
+      "profile": "پروفایل",
+      "conversation": "گفت‌و‌گو",
+      "logout": "خروج"
+    },
+    "footer": {
+      "test": "test"
+    },
+    "global": {
+      "title": "داشبورد",
+      "description": "در این صفحه شما میتوانید نمایی کلی از فعالیت های خود را مشاهده کنید"
+    }
+  }
+}

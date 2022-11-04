@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NEXT_PUBLIC_REST_API_ENDPOINT": "https://api.vira.ir/"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_REST_API_ENDPOINT": "https://api.vira.ir/"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Folders
+node_modules
+coverage
+build
+
+# Files
+jsconfig.json
+src/components/thirdPartyScripts/thirdPartyScripts.js
