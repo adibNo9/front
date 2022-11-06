@@ -7,7 +7,6 @@ import { Hydrate } from 'react-query/hydration'
 import { ToastContainer } from 'react-toastify'
 import { appWithTranslation } from 'next-i18next'
 
-
 import ManagedDrawer from '@components/common/drawer/managed-drawer'
 import { DefaultSeo } from '@components/common/default-seo'
 
@@ -21,10 +20,7 @@ import 'react-toastify/dist/ReactToastify.css'
 // base css file
 import '@styles/swiper-carousel.css'
 import '@styles/custom-plugins.css'
-// import 'antd/dist/antd.css'
-import 'antd/lib/dropdown/style/index.css'
-import 'antd/lib/menu/style/index.css'
-import 'antd/lib/space/style/index.css'
+
 import '@styles/custom.css'
 import '@styles/tailwind.css'
 
@@ -60,29 +56,14 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
       <QueryClientProvider client={queryClientRef.current}>
         <Hydrate state={pageProps.dehydratedState}>
-
-            {Layout.requireAuth ? (
-              <AuthGuard>
-                <Layout pageProps={pageProps} key={router.route}>
-                  <DefaultSeo />
-                  {/* if requireAuth property is present - protect the page */}
-
-                  <Component {...pageProps} />
-
-                  <ToastContainer
-                    position="bottom-right"
-                    autoClose={5000}
-                    hideProgressBar={true}
-                    rtl={true}
-                    pauseOnHover
-                  />
-                </Layout>
-              </AuthGuard>
-            ) : (
-              <Layout pageProps={pageProps}>
+          {Layout.requireAuth ? (
+            <AuthGuard>
+              <Layout pageProps={pageProps} key={router.route}>
                 <DefaultSeo />
                 {/* if requireAuth property is present - protect the page */}
+
                 <Component {...pageProps} />
+
                 <ToastContainer
                   position="bottom-right"
                   autoClose={5000}
@@ -91,11 +72,23 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
                   pauseOnHover
                 />
               </Layout>
-            )}
+            </AuthGuard>
+          ) : (
+            <Layout pageProps={pageProps}>
+              <DefaultSeo />
+              {/* if requireAuth property is present - protect the page */}
+              <Component {...pageProps} />
+              <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={true}
+                rtl={true}
+                pauseOnHover
+              />
+            </Layout>
+          )}
 
-
-            <ManagedDrawer />
-
+          <ManagedDrawer />
         </Hydrate>
         {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
