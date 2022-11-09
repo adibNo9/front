@@ -1,11 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 import React, { useMemo } from 'react'
-import { ConfigProvider } from 'antd'
-import {
-  DatePicker as DatePickerJalali,
-  JalaliLocaleListener,
-} from 'antd-jalali'
-import fa_IR from 'antd/lib/locale/fa_IR'
+
 import dayjs from 'dayjs'
 import jalaliday from 'jalaliday'
 
