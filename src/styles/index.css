@@ -13,14 +13,5 @@
 }
 
 .MuiInputBase-root {
-  @apply bg-lightBlue;
-  background: #F8FDFD;
-box-shadow: inset 0px 1.34883px 2.69767px #D4E2ED;
-border-radius: 5.39533px;
-
-/* Inside auto layout */
-
-flex: none;
-order: 1;
-flex-grow: 0;
+  @apply bg-lightBlue shadow-textInput flex-none order-1 grow-0 rounded-md;
 }

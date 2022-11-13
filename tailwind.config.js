@@ -57,6 +57,7 @@ module.exports = {
         facebookHover: '#395fad',
         google: '#4285F4',
         googleHover: '#307bf9',
+        lightBlue: '#F8FDFD',
       },
       fontSize: {
         '10px': '.625rem',
