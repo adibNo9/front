@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        superThin: '0.1px'
+      },
       colors: {
         brand: {
           main: '#2E86DE',
@@ -58,6 +61,7 @@ module.exports = {
         google: '#4285F4',
         googleHover: '#307bf9',
         lightBlue: '#F8FDFD',
+        mountainMain: '#8AB3D1'
       },
       fontSize: {
         '10px': '.625rem',

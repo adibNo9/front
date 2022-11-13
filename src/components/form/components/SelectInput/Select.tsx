@@ -4,7 +4,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { InputLabel } from '@mui/material';
+import { ChevronUp } from 'src/assets/icons/chevronUp';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -55,28 +55,29 @@ export default function MultipleSelectPlaceholder() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
+      <FormControl className='selectInputWrapper'>
         <Select
-          multiple
+          IconComponent={(props) => <ChevronUp {...props} />}
           displayEmpty
           value={personName}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>Placeholder</em>;
+              return 'Placeholder';
             }
 
             return selected.join(', ');
           }}
-          MenuProps={MenuProps}
-          // inputProps={{ 'aria-label': 'Without label' }}
+          // MenuProps={MenuProps}
+          inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem disabled value="">
-            <em>Placeholder</em>
+          <MenuItem className='menuItemWrapper' disabled value="">
+            Placeholder
           </MenuItem>
           {names.map((name) => (
             <MenuItem
+              className='menuItemWrapper'
               key={name}
               value={name}
               style={getStyles(name, personName, theme)}
