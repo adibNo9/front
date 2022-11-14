@@ -34,7 +34,7 @@
 - [ ] 1- Does the code work? Check whether function and logic are correct.
 - [ ] 2- Are functions, methods, and variables adequately named?
 - [ ] 3- Is the code clear and easy to understand?
-- [ ] 4- Did you check Codes must comply with pre-established rules? ([document rules](https://docs.google.com/document/d/1ntzwz3HR-B0fYSvCClOeSE5_SKyzPFnL/edit))
+- [ ] 4- Did you check Codes must comply with pre-established rules? 
 - [ ] 5- Aren't there better or simpler solutions?
 - [ ] 6- Isn't there any duplicated code?
 - [ ] 7- Isn't there any commented or unnecessary code?
@@ -43,7 +43,7 @@
 - [ ] 10- We should not put anything that is not needed in the redux form, is this correct?
 - [ ] 11- Did you use related labels for MR?
 
-  **2-1 Check issue and description, comments in Jira**
+  **2-1 Check issue and description**
 
   - [ ] 1- Have all the descriptions and comments been done?
   - [ ] 2- Manual test - Clear all cache in the browser, Run stop, and start in the terminal
