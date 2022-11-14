@@ -9,14 +9,14 @@ export interface IPackageCard {
   image?: string
   title?: string
   season?: string
-  leason?: string
+  lesson?: string
 }
 
 const PackageCard: React.FC<IPackageCard> = ({
   image,
   title,
   season,
-  leason,
+  lesson,
 }) => {
   return (
     <div className={styles['package-card']}>
@@ -27,7 +27,7 @@ const PackageCard: React.FC<IPackageCard> = ({
       <CardContent>
         <Typography variant="h6">{title}</Typography>
         <Typography variant="body2">{season}</Typography>
-        <Typography variant="body2">{leason}</Typography>
+        <Typography variant="body2">{lesson}</Typography>
       </CardContent>
     </div>
   )

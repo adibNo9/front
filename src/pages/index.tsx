@@ -9,7 +9,7 @@ const index = () => {
         image={image.src}
         title=" بسته زیست شناسی"
         season="فصل اول: جهان هستی"
-        leason="درس: چهارم "
+        lesson="درس: چهارم "
       />
     </div>
   )
