@@ -1,0 +1,21 @@
+.package-card {
+  @apply w-32 h-52 mx-auto shadow-packageCard border-thin border-borderColor border-solid rounded-md;
+  :global(.MuiCardHeader-root) {
+    @apply p-1.5;
+  }
+  :global(.MuiCardHeader-avatar) {
+    @apply mr-0;
+  }
+  :global(.MuiCardMedia-root) {
+    @apply flex justify-center;
+  }
+  :global(.css-46bh2p-MuiCardContent-root) {
+    @apply p-4;
+  }
+  :global(.css-46bh2p-MuiCardContent-root h6) {
+    @apply pb-1 text-center;
+  }
+  :global(.css-46bh2p-MuiCardContent-root p) {
+    @apply pb-1 text-descriptionText text-center;
+  }
+}
