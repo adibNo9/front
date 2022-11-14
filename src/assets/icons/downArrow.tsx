@@ -1,0 +1,20 @@
+import React from 'react';
+
+export const DownArrow: React.FC<React.SVGAttributes<{}>> = props => (
+    <svg
+        width="15"
+        height="9"
+        viewBox="0 0 15 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+    >
+        <path
+            d="M1 1L7.24668 7.33621L13.4934 1"
+            stroke="#F28665"
+            stroke-width="1.80853"
+            stroke-linecap="round"
+        />
+    </svg>
+
+)
