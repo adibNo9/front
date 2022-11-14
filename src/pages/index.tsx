@@ -1,7 +1,18 @@
 import React from 'react'
+import PackageCard from '@components/card/PackageCard'
+import image from '@assets/images/package-image.png'
 
 const index = () => {
-  return <div>index</div>
+  return (
+    <div>
+      <PackageCard
+        image={image.src}
+        title=" بسته زیست شناسی"
+        season="فصل اول: جهان هستی"
+        leason="درس: چهارم "
+      />
+    </div>
+  )
 }
 
 export default index
