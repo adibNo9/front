@@ -27,6 +27,8 @@ import '@styles/tailwind.css'
 import 'swiper/css/bundle'
 import { getDirection } from '@utils/get-direction'
 import { AuthGuard } from '@components/guard/auth-guard'
+import { theme } from '@shared/theme'
+import { ThemeProvider } from '@mui/material'
 
 function handleExitComplete() {
   if (typeof window !== 'undefined') {
@@ -53,17 +55,32 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   }, [])
 
   return (
-    <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
-      <QueryClientProvider client={queryClientRef.current}>
-        <Hydrate state={pageProps.dehydratedState}>
-          {Layout.requireAuth ? (
-            <AuthGuard>
-              <Layout pageProps={pageProps} key={router.route}>
+    <ThemeProvider theme={theme}>
+      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+        <QueryClientProvider client={queryClientRef.current}>
+          <Hydrate state={pageProps.dehydratedState}>
+            {Layout.requireAuth ? (
+              <AuthGuard>
+                <Layout pageProps={pageProps} key={router.route}>
+                  <DefaultSeo />
+                  {/* if requireAuth property is present - protect the page */}
+
+                  <Component {...pageProps} />
+
+                  <ToastContainer
+                    position="bottom-right"
+                    autoClose={5000}
+                    hideProgressBar={true}
+                    rtl={true}
+                    pauseOnHover
+                  />
+                </Layout>
+              </AuthGuard>
+            ) : (
+              <Layout pageProps={pageProps}>
                 <DefaultSeo />
                 {/* if requireAuth property is present - protect the page */}
-
                 <Component {...pageProps} />
-
                 <ToastContainer
                   position="bottom-right"
                   autoClose={5000}
@@ -72,27 +89,14 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
                   pauseOnHover
                 />
               </Layout>
-            </AuthGuard>
-          ) : (
-            <Layout pageProps={pageProps}>
-              <DefaultSeo />
-              {/* if requireAuth property is present - protect the page */}
-              <Component {...pageProps} />
-              <ToastContainer
-                position="bottom-right"
-                autoClose={5000}
-                hideProgressBar={true}
-                rtl={true}
-                pauseOnHover
-              />
-            </Layout>
-          )}
+            )}
 
-          <ManagedDrawer />
-        </Hydrate>
-        {/* <ReactQueryDevtools /> */}
-      </QueryClientProvider>
-    </AnimatePresence>
+            <ManagedDrawer />
+          </Hydrate>
+          {/* <ReactQueryDevtools /> */}
+        </QueryClientProvider>
+      </AnimatePresence>
+    </ThemeProvider>
   )
 }
 
