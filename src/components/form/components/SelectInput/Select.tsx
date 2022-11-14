@@ -1,92 +1,59 @@
-import * as React from 'react';
-import { Theme, useTheme } from '@mui/material/styles';
+import { FC, useState } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { ChevronUp } from 'src/assets/icons/chevronUp';
+import { DownArrow } from 'src/assets/icons/downArrow';
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
-
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
-function getStyles(name: string, personName: readonly string[], theme: Theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
+interface FormSelectInputProps {
+  items: string[],
 }
 
-export default function MultipleSelectPlaceholder() {
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
+const FormSelectInput: FC<FormSelectInputProps> = ({ items }) => {
+  const [selectedItem, setSelectedItem] = useState<string[]>([]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  const handleChange = (event: SelectChangeEvent<typeof selectedItem>): void => {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
+    setSelectedItem(
       typeof value === 'string' ? value.split(',') : value,
     );
   };
 
+
   return (
     <div>
-      <FormControl className='selectInputWrapper'>
+      <FormControl className='selectInputWrapper inputWrapper'>
         <Select
-          IconComponent={(props) => <ChevronUp {...props} />}
+          IconComponent={(props) => <DownArrow {...props} />}
           displayEmpty
-          value={personName}
+          value={selectedItem}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return 'Placeholder';
+              return items[0];
             }
 
             return selected.join(', ');
           }}
-          // MenuProps={MenuProps}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem className='menuItemWrapper' disabled value="">
-            Placeholder
-          </MenuItem>
-          {names.map((name) => (
-            <MenuItem
-              className='menuItemWrapper'
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
+          {
+            items?.map((item: string) => (
+              <MenuItem
+                className='menuItemWrapper'
+                key={item}
+                value={item}
+              >
+                {item}
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
     </div>
   );
 }
+
+export default FormSelectInput;

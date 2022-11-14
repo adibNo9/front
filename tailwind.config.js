@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        xs: '-3px 4px 8px rgba(212, 226, 237, 0.8)',
+      },
       borderWidth: {
         superThin: '0.1px'
       },

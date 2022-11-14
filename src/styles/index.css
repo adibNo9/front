@@ -33,16 +33,12 @@
 }
 
 
-.selectInputWrapper {
-  @apply w-96;
-}
-
 .selectInputWrapper .MuiInputBase-root {
-  @apply bg-lightBlue h-7 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1;
+  @apply bg-lightBlue h-8 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1 hover:border-lightBlue;
 }
 
 .selectInputWrapper .MuiInputBase-root fieldset {
-  @apply border-transparent focus:border-red-700 hover:border-yellow-400;
+  @apply border-transparent;
 }
 
 .selectInputWrapper .css-yccci7-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
@@ -61,11 +57,14 @@
   @apply right-auto left-8 w-3 h-2 top-[calc(50%_-_0.25em)];
 }
 
-.selectInputWrapper  .MuiList-root{
-  @apply bg-red-800;
-}
-
 .menuItemWrapper {
-  @apply bg-lightBlue border-x-0 border-y-superThin border-solid border-mountainMain;
+  @apply bg-lightBlue border-x-0 border-b-superThin border-solid border-mountainMain font-medium leading-5 text-center text-blueText-main opacity-80 flex justify-center items-center h-7 hover:bg-lightBlue;
 }
 
+.MuiList-root.MuiList-padding.MuiMenu-list.css-6hp17o-MuiList-root-MuiMenu-list {
+  @apply py-0 rounded-none;
+}
+
+.css-1n198ff-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  @apply shadow-textInput drop-shadow-xs lg:top-[570px];
+}
