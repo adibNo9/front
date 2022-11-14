@@ -33,6 +33,10 @@
 }
 
 
+.selectInputWrapper label {
+  @apply not-italic font-normal leading-6 text-center text-lableColor-main mr-4;
+}
+
 .selectInputWrapper .MuiInputBase-root {
   @apply bg-lightBlue h-8 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1 hover:border-lightBlue;
 }
@@ -45,12 +49,13 @@
   @apply border-none;
 }
 
-.selectInputWrapper .MuiInputBase-root .MuiSelect-select {
-  @apply text-center;
-}
 
 .selectInputWrapper .MuiInputBase-root .MuiSelect-select {
-  @apply not-italic font-normal text-sm leading-6 text-center text-blueText-main opacity-80 ;
+  @apply not-italic font-normal text-sm leading-6 text-center text-blueText-main opacity-80;
+}
+
+.selectInputWrapper .MuiSelect-select span{
+  @apply not-italic font-normal text-xs leading-5 text-center opacity-80 text-spanishGray;
 }
 
 .selectInputWrapper .MuiInputBase-root .MuiSelect-icon {
@@ -58,7 +63,7 @@
 }
 
 .menuItemWrapper {
-  @apply bg-lightBlue border-x-0 border-b-superThin border-solid border-mountainMain font-medium leading-5 text-center text-blueText-main opacity-80 flex justify-center items-center h-7 hover:bg-lightBlue;
+  @apply bg-lightBlue border-x-0 border-b-superThin border-solid border-mountainMain font-medium leading-5 text-center text-blueText-main opacity-80 flex justify-center items-center h-8 hover:bg-lightBlue;
 }
 
 .MuiList-root.MuiList-padding.MuiMenu-list.css-6hp17o-MuiList-root-MuiMenu-list {
@@ -66,5 +71,5 @@
 }
 
 .css-1n198ff-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-  @apply shadow-textInput drop-shadow-xs lg:top-[570px];
+  @apply shadow-textInput drop-shadow-xs ;
 }

@@ -64,17 +64,24 @@ module.exports = {
         google: '#4285F4',
         googleHover: '#307bf9',
         lightBlue: '#F8FDFD',
-        mountainMain: '#8AB3D1'
+        mountainMain: '#8AB3D1',
+        spanishGray: '#979797'
       },
       fontSize: {
         '10px': '.625rem',
       },
       screens: {
         sm: '480px',
-        lg: '1025px',
-        '2xl': '1500px',
-        '3xl': '1780px',
+        lg: '744px',
+        '2xl': '980px',
+        '3xl': '1442px',
       },
+      // screens: {
+      //   sm: '480px',
+      //   lg: '1025px',
+      //   '2xl': '1500px',
+      //   '3xl': '1780px',
+      // },
       spacing: {
         '430px': '430px',
         '450px': '450px',
