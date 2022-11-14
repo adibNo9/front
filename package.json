@@ -81,5 +81,10 @@
   "resolutions": {
     "autoprefixer": "10.4.5"
   },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
   "version": "1.0.0"
 }
