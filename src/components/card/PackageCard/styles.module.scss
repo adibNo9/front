@@ -13,9 +13,9 @@
     @apply p-4;
   }
   :global(.css-46bh2p-MuiCardContent-root h6) {
-    @apply pb-1 text-center;
+    @apply pb-1 text-center text-xs font-bold;
   }
   :global(.css-46bh2p-MuiCardContent-root p) {
-    @apply pb-1 text-descriptionText text-center;
+    @apply pb-1 text-descriptionText text-center text-[10px];
   }
 }
