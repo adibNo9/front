@@ -1,10 +1,12 @@
 import React from 'react'
+import { CardContent, CardHeader, CardMedia, Typography } from '@mui/material'
+
+import { useTranslation } from 'next-i18next'
 
 import Image from 'next/image'
-import { CardHeader, CardContent, CardMedia, Typography } from '@mui/material'
 import { PuzzleIcon } from '@assets/icon/PuzzleIcon'
+
 import styles from './styles.module.scss'
-import { useTranslation } from 'next-i18next'
 
 export interface IPackageCard {
   image: string
@@ -19,7 +21,11 @@ const PackageCard: React.FC<IPackageCard> = ({
   season,
   lesson,
 }) => {
-  const { t } = useTranslation()
+  const { t: translate } = useTranslation()
+
+  const titleText = translate(title)
+  const seasonText = translate(season)
+  const lessonText = translate(lesson)
 
   return (
     <div className={styles['package-card']}>
@@ -28,9 +34,9 @@ const PackageCard: React.FC<IPackageCard> = ({
         <Image src={image} alt="s" width="112" height="96" />
       </CardMedia>
       <CardContent>
-        <Typography variant="h6">{t(title)}</Typography>
-        <Typography variant="body2">{t(season)}</Typography>
-        <Typography variant="body2">{t(lesson)}</Typography>
+        <Typography variant="h6">{titleText}</Typography>
+        <Typography>{seasonText}</Typography>
+        <Typography>{lessonText}</Typography>
       </CardContent>
     </div>
   )
