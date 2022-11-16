@@ -41,11 +41,8 @@ const MainButton: React.FC<IMainButton> = ({
   const { t } = useTranslation()
   const hasIcon = type?.includes('icon')
   const hasText = type?.includes('text')
-  const wrapperClassName = classNames({
-    'disabled-button-struck': disabled && type.includes('struck-dark'),
-    'disabled-button-border': disabled && type.includes('struck-light'),
-    'disabled-button-text':
-      disabled && [ButtonType.text, ButtonType.textIcon].includes(type),
+  const disabledCLassName = classNames({
+    'disabled-button': disabled,
   })
 
   /******************************* ELEMENTS *********************************************/
@@ -54,7 +51,7 @@ const MainButton: React.FC<IMainButton> = ({
       className={[
         styles[`custom-button-wrapper`],
         styles[type],
-        styles[wrapperClassName],
+        styles[disabledCLassName],
         styles[classNames(customClassName)],
       ].join(' ')}
     >
