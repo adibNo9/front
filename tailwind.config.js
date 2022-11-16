@@ -62,6 +62,8 @@ module.exports = {
         googleHover: '#307bf9',
         borderColor: '#EDF0F1',
         descriptionText: '#96A7AF',
+        blueCola: '#007BDA',
+        deActiveBlue: '#B3D8F4',
       },
       fontSize: {
         '10px': '.625rem',

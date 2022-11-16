@@ -1,0 +1,43 @@
+.custom-button-wrapper.text-struck-dark-button {
+  @apply w-60 h-8 bg-blueCola rounded
+}
+.custom-button-wrapper.text-struck-dark-button .custom-button {
+ @apply bg-transparent w-60 h-8 border-none text-white 
+}
+
+.custom-button-wrapper.text-struck-light-button {
+  @apply w-60 h-8 bg-white rounded
+}
+.custom-button-wrapper.text-struck-light-button .custom-button {
+ @apply bg-transparent w-60 h-8 border  border-blueCola  rounded text-blueCola 
+}
+
+.custom-button-wrapper.small-text-struck-dark-button {
+  @apply w-24 h-8 bg-blueCola rounded
+}
+.custom-button-wrapper.small-text-struck-dark-button .custom-button {
+ @apply bg-transparent w-24 h-8 border-none text-white 
+}
+
+.custom-button-wrapper.small-text-struck-light-button {
+  @apply w-24 h-8 bg-white rounded
+}
+.custom-button-wrapper.small-text-struck-light-button .custom-button {
+ @apply bg-transparent w-24 h-8 border  border-blueCola  rounded text-blueCola 
+}
+
+.custom-button-wrapper.text-button {
+  @apply  h-8 bg-white rounded
+}
+.custom-button-wrapper.text-button .custom-button {
+ @apply bg-transparent  h-8 border-none rounded text-blueCola 
+}
+.custom-button-wrapper.disabled-button-struck{
+  @apply  bg-deActiveBlue 
+}
+.custom-button-wrapper.disabled-button-border .custom-button{
+  @apply   border-deActiveBlue text-deActiveBlue 
+}
+.custom-button-wrapper.disabled-button-text .custom-button{
+ @apply  text-deActiveBlue 
+}
