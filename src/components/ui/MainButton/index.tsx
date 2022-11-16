@@ -26,7 +26,6 @@ export interface IMainButton {
   text?: string
   customClassName?: string
   disabled?: boolean
-  // isLoading?: boolean
   onClick: () => void
 }
 
@@ -37,7 +36,6 @@ const MainButton: React.FC<IMainButton> = ({
   text,
   disabled,
   customClassName,
-  // isLoading,
 }) => {
   /******************************* CONSTANTS *********************************************/
   const { t } = useTranslation()
@@ -66,6 +64,7 @@ const MainButton: React.FC<IMainButton> = ({
         className={styles['custom-button']}
       >
         {iconName && hasIcon && (
+          /**TODO[Nasrin] use Icon component instead of svg */
           <svg
             className="fill-current w-4 h-4 mr-2"
             xmlns="http://www.w3.org/2000/svg"
