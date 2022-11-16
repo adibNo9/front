@@ -12,7 +12,8 @@ module.exports = {
         xs: '-3px 4px 8px rgba(212, 226, 237, 0.8)',
       },
       borderWidth: {
-        superThin: '0.1px'
+        superThin: '0.1px',
+        thin: '0.3px',
       },
       colors: {
         brand: {
@@ -65,7 +66,9 @@ module.exports = {
         googleHover: '#307bf9',
         lightBlue: '#F8FDFD',
         mountainMain: '#8AB3D1',
-        spanishGray: '#979797'
+        spanishGray: '#979797',
+        borderColor: '#EDF0F1',
+        descriptionText: '#96A7AF',
       },
       fontSize: {
         '10px': '.625rem',
@@ -120,6 +123,7 @@ module.exports = {
       bottomNavigation: '0 -2px 3px rgba(0, 0, 0, 0.06)',
       cookies: '0 -2px 3px rgba(0, 0, 0, 0.04)',
       avatar: '0px 15px 30px rgba(0, 0, 0, 0.16)',
+      packageCard: '-1px 2px 6px 0 rgba(212, 226, 237, 1)',
     },
     fontFamily: {
       body: ["'Open Sans', sans-serif"],
@@ -133,4 +137,7 @@ module.exports = {
     }),
     require('tailwindcss-rtl'),
   ],
+  corePlugins: {
+    preflight: false,
+  },
 }
