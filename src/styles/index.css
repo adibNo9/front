@@ -12,53 +12,53 @@
   }
 }
 
-.inputWrapper {
+.input-wrapper {
   @apply flex flex-col mx-4 my-2.5 md:mx-20 md:my-5;
 }
 
-.inputWrapper label {
+.input-wrapper label {
   @apply flex static w-full justify-start origin-top-right text-lableColor-main mr-1;
 }
 
-.inputWrapper .MuiInputBase-root {
+.input-wrapper .MuiInputBase-root {
   @apply bg-[#F8FDFD] rounded-md shadow-textInput;
 }
 
-.inputWrapper .MuiInputBase-root input {
+.input-wrapper .MuiInputBase-root input {
   @apply px-1 pb-0 pt-1 h-7;
 }
 
-.inputWrapper .MuiFormHelperText-root {
+.input-wrapper .MuiFormHelperText-root {
   @apply text-right mr-1;
 }
 
 
-.selectInputWrapper label {
+.select-input-wrapper label {
   @apply not-italic font-normal leading-6 text-center text-lableColor-main mr-4;
 }
 
-.selectInputWrapper .MuiInputBase-root {
+.select-input-wrapper .MuiInputBase-root {
   @apply bg-lightBlue h-8 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1 hover:border-lightBlue;
 }
 
-.selectInputWrapper .MuiInputBase-root fieldset {
+.select-input-wrapper .MuiInputBase-root fieldset {
   @apply border-transparent;
 }
 
-.selectInputWrapper .css-yccci7-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+.select-input-wrapper .css-yccci7-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   @apply border-none;
 }
 
 
-.selectInputWrapper .MuiInputBase-root .MuiSelect-select {
+.select-input-wrapper .MuiInputBase-root .MuiSelect-select {
   @apply not-italic font-normal text-sm leading-6 text-center text-blueText-main opacity-80;
 }
 
-.selectInputWrapper .MuiSelect-select span{
+.select-input-wrapper .MuiSelect-select span{
   @apply not-italic font-normal text-xs leading-5 text-center opacity-80 text-spanishGray;
 }
 
-.selectInputWrapper .MuiInputBase-root .MuiSelect-icon {
+.select-input-wrapper .MuiInputBase-root .MuiSelect-icon {
   @apply right-auto left-8 w-3 h-2 top-[calc(50%_-_0.25em)];
 }
 
