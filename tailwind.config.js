@@ -62,6 +62,9 @@ module.exports = {
         googleHover: '#307bf9',
         borderColor: '#EDF0F1',
         descriptionText: '#96A7AF',
+        daphne: '#1263A1',
+        deutziaWhite: '#F8FDFD',
+        error: '#DF2E2E',
       },
       fontSize: {
         '10px': '.625rem',
@@ -111,11 +114,13 @@ module.exports = {
       cookies: '0 -2px 3px rgba(0, 0, 0, 0.04)',
       avatar: '0px 15px 30px rgba(0, 0, 0, 0.16)',
       packageCard: '-1px 2px 6px 0 rgba(212, 226, 237, 1)',
+      textInput: '0px 2px 4px #D4E2ED inset',
     },
     fontFamily: {
       body: ["'Open Sans', sans-serif"],
       satisfy: ["'Satisfy', cursive"],
       segoe: ["'Segoe UI', sans-serif"],
+      yekanBakh: ['yekanBakh'],
     },
   },
   plugins: [
