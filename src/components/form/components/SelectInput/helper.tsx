@@ -18,7 +18,7 @@ export const generateMenu = (items: string[]) => {
 export const ArrowIcon = (props) => <DownArrow {...props} />
 
 export const renderValue = (selected: string) => {
-  if (selected.length === 0) {
+  if (!selected) {
     return <span>انتخاب کنید</span>;
   }
 
