@@ -1,0 +1,7 @@
+.MuiList-root.MuiList-padding.MuiMenu-list.css-6hp17o-MuiList-root-MuiMenu-list {
+    @apply py-0 rounded-none;
+}
+
+.css-1n198ff-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+    @apply shadow-textInput drop-shadow-xs;
+}
