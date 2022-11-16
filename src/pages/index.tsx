@@ -3,7 +3,7 @@ import FormSelectInput from '@components/form/components/SelectInput/FormSelectI
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
 
-import { SelectChangeEvent } from '@mui/material/Select';
+import { SelectChangeEvent } from '@mui/material/Select'
 
 const names: string[] = [
   'ali',
@@ -13,14 +13,14 @@ const names: string[] = [
 ]
 
 const index = () => {
-  const [selected, setSelected] = useState<string>('');
+  const [selected, setSelected] = useState<string>('')
 
   const handleChange = (event: SelectChangeEvent<string>): void => {
     const {
       target: { value },
-    } = event;
-    setSelected(value);
-  };
+    } = event
+    setSelected(value)
+  }
 
   return (
     <Box

@@ -1,11 +1,12 @@
-import { InputLabel, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import classNames from 'classnames';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { FC } from 'react';
-import { generateMenu, ArrowIcon, renderValue } from './helper';
-import styles from './styles.module.scss';
+import { InputLabel, Typography } from '@mui/material'
+import FormControl from '@mui/material/FormControl'
+import classNames from 'classnames'
+import OutlinedInput from '@mui/material/OutlinedInput'
+import Select, { SelectChangeEvent } from '@mui/material/Select'
+import { FC } from 'react'
+import { generateMenu, ArrowIcon, translateItems } from './helper'
+import { useTranslation } from 'next-i18next'
+import styles from './styles.module.scss'
 
 interface FormSelectInputProps {
   items: string[],
@@ -21,7 +22,21 @@ const FormSelectInput: FC<FormSelectInputProps> = ({
   stateValue,
   ...otherProps
 }) => {
-  const menu = generateMenu(items);
+  const [translate] = useTranslation()
+  const itemsTexts = translateItems(items, translate)
+  const menu = generateMenu(itemsTexts)
+
+  const renderValue = (selected: string) => {
+    const placeHolder: string = translate('انتخاب کنید')
+
+    if (!selected) {
+      return <span>{placeHolder}</span>
+    }
+
+    return selected
+  }
+
+  const titleText: string = translate(title)
 
   return (
     <div>
@@ -29,7 +44,7 @@ const FormSelectInput: FC<FormSelectInputProps> = ({
         className={classNames(styles['select-input-wrapper'], styles['input-wrapper'])}
       >
         <InputLabel shrink htmlFor='select-input'>
-          <Typography variant="h3">{title}</Typography>
+          <Typography variant="h3">{titleText}</Typography>
         </InputLabel>
         <Select
           IconComponent={ArrowIcon}
@@ -49,7 +64,7 @@ const FormSelectInput: FC<FormSelectInputProps> = ({
         </Select>
       </FormControl>
     </div>
-  );
+  )
 }
 
-export default FormSelectInput;
+export default FormSelectInput
