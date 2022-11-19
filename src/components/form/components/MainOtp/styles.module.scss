@@ -1,0 +1,6 @@
+.otp-wrapper {
+  input {
+    @apply bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput border-none m-2 h-9 w-9 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
+  }
+  @apply flex w-full m-auto justify-center;
+}
