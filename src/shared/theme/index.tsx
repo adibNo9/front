@@ -20,6 +20,7 @@ export const Colors = {
   deutziaWhite: '#F8FDFD',
   brushBlue: '#D4E2ED',
   error: '#DF2E2E',
+  woodCharcoal: '#464646',
 }
 
 export const theme = createTheme({
