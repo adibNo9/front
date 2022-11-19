@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
-import * as OtpTimer from 'otp-timer'
+//@ts-ignore
+import OtpTimer from 'otp-timer'
 
 import styles from './styles.module.scss'
 import { RE_DIGIT } from './constants'
