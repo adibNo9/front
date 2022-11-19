@@ -65,6 +65,7 @@ module.exports = {
         daphne: '#1263A1',
         deutziaWhite: '#F8FDFD',
         error: '#DF2E2E',
+        steelBlue: '#4182B4',
       },
       fontSize: {
         '10px': '.625rem',

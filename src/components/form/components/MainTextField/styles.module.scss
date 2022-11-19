@@ -11,12 +11,12 @@
   }
   label {
     p {
-      @apply my-1 text-daphne;
+      @apply my-1 text-daphne text-[15px];
     }
     @apply flex static w-full justify-start origin-top-right  mr-1;
   }
   input {
-    @apply bg-deutziaWhite rounded-md shadow-textInput border-none px-1 pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
+    @apply bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput border-none px-1 pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
   }
   p {
     span {

@@ -3,7 +3,7 @@ import React from 'react'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 
-export interface ITextField {
+export interface IMainInput {
   label?: string
   id: string
   type: string
@@ -15,7 +15,7 @@ export interface ITextField {
   error?: boolean
 }
 
-const TextField: React.FC<ITextField> = ({
+const MainInput: React.FC<IMainInput> = ({
   label,
   id,
   type,
@@ -54,4 +54,4 @@ const TextField: React.FC<ITextField> = ({
   )
 }
 
-export default TextField
+export default MainInput
