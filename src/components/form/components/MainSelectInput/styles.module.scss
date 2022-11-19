@@ -1,21 +1,4 @@
-.input-wrapper {
-    @apply flex flex-col mx-4 my-2.5 md:mx-20 md:my-5;
-    :global(label){
-        @apply flex static w-full justify-start origin-top-right text-lableColor-main mr-1;
-    }
-    :global(.MuiInputBase-root){
-        @apply bg-[#F8FDFD] rounded-md shadow-textInput;
-    }
-    :global(.MuiInputBase-root input){
-        @apply px-1 pb-0 pt-1 h-7;
-    }
-    :global(.MuiFormHelperText-root){
-        @apply text-right mr-1;
-    }
-}
-
-
-.select-input-wrapper {
+.main-select-input-wrapper {
     :global(label) {
         @apply not-italic font-normal leading-6 text-center text-lableColor-main mr-4;
     }
@@ -42,5 +25,23 @@
 .menu-item-wrapper {
     @apply bg-lightBlue border-x-0 border-b-superThin border-solid border-mountainMain font-medium leading-5 text-center text-blueText-main opacity-80 flex justify-center items-center h-8 hover:bg-lightBlue;
 }
+
+.input-wrapper {
+    @apply flex flex-col mx-4 my-2.5 md:mx-20 md:my-5;
+    :global(label){
+        @apply flex static w-full justify-start origin-top-right text-lableColor-main mr-1;
+    }
+    :global(.MuiInputBase-root){
+        @apply bg-[#F8FDFD] rounded-md shadow-textInput;
+    }
+    :global(.MuiInputBase-root input){
+        @apply px-1 pb-0 pt-1 h-7;
+    }
+    :global(.MuiFormHelperText-root){
+        @apply text-right mr-1;
+    }
+}
+
+
 
 
