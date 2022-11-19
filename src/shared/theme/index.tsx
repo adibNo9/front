@@ -19,6 +19,7 @@ export const Colors = {
   plaster: '#EAEAEA',
   deutziaWhite: '#F8FDFD',
   brushBlue: '#D4E2ED',
+  error: '#DF2E2E',
 }
 
 export const theme = createTheme({
