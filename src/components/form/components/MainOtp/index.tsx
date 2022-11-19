@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react'
+import OtpTimer from 'otp-timer'
+
 import styles from './styles.module.scss'
 import { RE_DIGIT } from './constants'
 
@@ -6,9 +8,15 @@ export interface IOtp {
   value: string
   valueLength: number
   onChange: (value: string) => void
+  resendOtpCode: () => void
 }
 
-const MainOtp: React.FC<IOtp> = ({ value, valueLength, onChange }) => {
+const MainOtp: React.FC<IOtp> = ({
+  value,
+  valueLength,
+  onChange,
+  resendOtpCode,
+}) => {
   const valueItems = useMemo(() => {
     const valueArray = value.split('')
     const items: Array<string> = []
@@ -121,22 +129,37 @@ const MainOtp: React.FC<IOtp> = ({ value, valueLength, onChange }) => {
   }
 
   return (
-    <div className={styles['otp-wrapper']} dir="ltr">
-      {valueItems.map((digit, idx) => (
-        <input
-          key={idx}
-          type="text"
-          inputMode="numeric"
-          autoComplete="one-time-code"
-          pattern="\d{1}"
-          maxLength={valueLength}
-          onChange={e => inputOnChange(e, idx)}
-          onKeyDown={inputOnKeyDown}
-          onFocus={inputOnFocus}
-          value={digit}
+    <>
+      <div className={styles['otp-wrapper']} dir="ltr">
+        {valueItems.map((digit, idx) => (
+          <input
+            key={idx}
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            pattern="\d{1}"
+            maxLength={valueLength}
+            onChange={e => inputOnChange(e, idx)}
+            onKeyDown={inputOnKeyDown}
+            onFocus={inputOnFocus}
+            value={digit}
+          />
+        ))}
+      </div>
+      <div className={styles['timer-wrapper']}>
+        <OtpTimer
+          className="test"
+          textColor={'#464646'}
+          background={'#fff'}
+          buttonColor={'#a8a8a8'}
+          seconds={30}
+          minutes={1}
+          text="ثانیه  "
+          ButtonText="کد دریافت نکرده اید؟ ارسال مجدد"
+          resend={resendOtpCode}
         />
-      ))}
-    </div>
+      </div>
+    </>
   )
 }
 
