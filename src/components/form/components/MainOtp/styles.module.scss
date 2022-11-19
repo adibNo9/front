@@ -4,3 +4,16 @@
   }
   @apply flex w-full m-auto justify-center;
 }
+
+.timer-wrapper {
+  button {
+    span {
+      @apply p-2 hover:underline hover:text-blueCola transition-all;
+    }
+    @apply cursor-pointer font-yekanBakh text-[15px];
+  }
+  span {
+    @apply font-yekanBakh flex flex-row-reverse px-1;
+  }
+  @apply flex justify-center my-11;
+}

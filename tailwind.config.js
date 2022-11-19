@@ -68,6 +68,7 @@ module.exports = {
         steelBlue: '#4182B4',
         blueCola: '#007BDA',
         deActiveBlue: '#B3D8F4',
+        woodCharcoal: '#464646',
       },
       fontSize: {
         '10px': '.625rem',
