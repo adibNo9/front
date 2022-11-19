@@ -41,7 +41,7 @@ const MainSelectInput: FC<IMainSelectInput> = ({
   return (
     <div>
       <FormControl
-        className={classNames(styles['main-select-input-wrapper'], styles['input-wrapper'])}
+        className={classNames(styles['main-select-input-wrapper'])}
       >
         <InputLabel shrink htmlFor='select-input'>
           <Typography variant="h3">{titleText}</Typography>
