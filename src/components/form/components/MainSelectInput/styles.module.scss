@@ -4,7 +4,7 @@
         @apply flex static w-full justify-start origin-top-right text-daphne mr-1;
     }
     :global(label h3) {
-        @apply not-italic text-base font-normal leading-6 text-center text-daphne mr-4;
+        @apply not-italic text-[15px] font-normal leading-6 text-center text-daphne mr-4;
     }
     :global(.MuiInputBase-root) {
         @apply bg-lightBlue h-8 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1 hover:border-lightBlue;
