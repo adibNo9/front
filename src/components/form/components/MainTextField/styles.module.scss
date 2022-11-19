@@ -1,0 +1,28 @@
+.textInput-wrapper {
+  &.error {
+    label {
+      p {
+        @apply text-error;
+      }
+    }
+    input {
+      @apply border-thin border-solid shadow-red-100 border-error;
+    }
+  }
+  label {
+    p {
+      @apply my-1 text-daphne text-[15px];
+    }
+    @apply flex static w-full justify-start origin-top-right  mr-1;
+  }
+  input {
+    @apply bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput border-none px-1 pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
+  }
+  p {
+    span {
+      @apply mr-1 text-xs;
+    }
+    @apply text-right my-1 text-error;
+  }
+  @apply flex flex-col mx-4 my-2.5 md:mx-20 md:my-5 font-yekanBakh w-72 sm:w-96;
+}
