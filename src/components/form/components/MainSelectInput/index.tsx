@@ -8,14 +8,14 @@ import { generateMenu, ArrowIcon, translateItems } from './helper'
 import { useTranslation } from 'next-i18next'
 import styles from './styles.module.scss'
 
-interface FormSelectInputProps {
+interface IMainSelectInput {
   items: string[],
   title: string,
   onChange?: (event: SelectChangeEvent<string>) => void,
   stateValue: string
 }
 
-const FormSelectInput: FC<FormSelectInputProps> = ({
+const MainSelectInput: FC<IMainSelectInput> = ({
   items,
   title,
   onChange,
@@ -67,4 +67,4 @@ const FormSelectInput: FC<FormSelectInputProps> = ({
   )
 }
 
-export default FormSelectInput
+export default MainSelectInput
