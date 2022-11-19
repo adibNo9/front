@@ -7,7 +7,4 @@
     font-family: yekanBakh;
     src: url(../../public/assets/fonts/Yekan\ Bakh\ Fa-En\ 04\ Regular.ttf);
   }
-  button {
-    @apply md:bg-red-600 rounded bg-transparent;
-  }
 }
