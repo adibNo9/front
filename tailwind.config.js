@@ -66,6 +66,8 @@ module.exports = {
         deutziaWhite: '#F8FDFD',
         error: '#DF2E2E',
         steelBlue: '#4182B4',
+        blueCola: '#007BDA',
+        deActiveBlue: '#B3D8F4',
       },
       fontSize: {
         '10px': '.625rem',
