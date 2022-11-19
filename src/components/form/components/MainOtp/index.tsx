@@ -148,11 +148,10 @@ const MainOtp: React.FC<IOtp> = ({
       </div>
       <div className={styles['timer-wrapper']}>
         <OtpTimer
-          className="test"
           textColor={'#464646'}
           background={'#fff'}
           buttonColor={'#a8a8a8'}
-          seconds={30}
+          seconds={59}
           minutes={1}
           text="ثانیه  "
           ButtonText="کد دریافت نکرده اید؟ ارسال مجدد"
