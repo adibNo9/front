@@ -1,56 +1,61 @@
-.custom-button-wrapper {
+.main-button-wrapper {
   /********************  TEXT STRUCK DARK BUTTON STYLE ******************/
   &.text-struck-dark-button {
-    .custom-button {
+    .main-button {
       @apply bg-transparent border-none text-white   w-60 h-8;
     }
-    &.disabled-button .custom-button {
+    &.disabled-button .main-button {
       @apply bg-deActiveBlue;
     }
     @apply w-60 h-8 bg-blueCola rounded;
   }
   /*****************  TEXT STRUCK LIGHT BUTTON STYLE ********************/
   &.text-struck-light-button {
-    .custom-button {
+    .main-button {
       @apply bg-transparent w-60 h-8 border border-solid  border-blueCola  rounded text-blueCola;
     }
-    &.disabled-button .custom-button {
+    &.disabled-button .main-button {
       @apply border-deActiveBlue text-deActiveBlue;
     }
     @apply w-60 h-8 bg-white rounded;
   }
   /******************  SMALL TEXT STRUCK DARK BUTTON STYLE *****************/
   &.small-text-struck-dark-button {
-    .custom-button {
+    .main-button {
       @apply bg-transparent w-24 h-8 border-none text-white;
     }
-    &.disabled-button .custom-button {
+    &.disabled-button .main-button {
       @apply bg-deActiveBlue;
     }
     @apply w-24 h-8 bg-blueCola rounded;
   }
   /*****************  SMALL TEXT STRUCK LIGHT BUTTON STYLE ******************/
   &.small-text-struck-light-button {
-    .custom-button {
+    .main-button {
       @apply bg-transparent w-24 h-8 border border-solid border-blueCola  rounded text-blueCola;
     }
-    &.disabled-button .custom-button {
+    &.disabled-button .main-button {
       @apply border-deActiveBlue text-deActiveBlue;
     }
     @apply w-24 h-8 bg-white rounded;
   }
   /******************************  TEXT BUTTON STYLE **************************/
   &.text-button {
-    .custom-button {
+    .main-button {
       @apply bg-transparent  h-8 border-none rounded text-blueCola;
     }
-    &.disabled-button .custom-button {
+    &.disabled-button .main-button {
       @apply text-deActiveBlue;
     }
     @apply h-8 bg-white rounded;
   }
   /****************************  GENERAL DISABLE STYLE **************************/
-  &.disabled-button .custom-button {
+  &.disabled-button .main-button {
     @apply cursor-not-allowed
   }
+   /*********************************  TEXT STYLE *******************************/
+  .main-button .main-button-text{
+    @apply font-bold text-xs
+  }
+    /********************************  CUSTOM STYLE *****************************/
 }

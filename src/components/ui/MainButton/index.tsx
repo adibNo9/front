@@ -49,7 +49,7 @@ const MainButton: React.FC<IMainButton> = ({
   return (
     <div
       className={[
-        styles[`custom-button-wrapper`],
+        styles[`main-button-wrapper`],
         styles[type],
         styles[disabledCLassName],
         styles[classNames(customClassName)],
@@ -58,7 +58,7 @@ const MainButton: React.FC<IMainButton> = ({
       <button
         disabled={disabled}
         onClick={onClick}
-        className={styles['custom-button']}
+        className={styles['main-button']}
       >
         {iconName && hasIcon && (
           /**TODO[Nasrin] use Icon component instead of svg */
@@ -70,7 +70,9 @@ const MainButton: React.FC<IMainButton> = ({
             <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
           </svg>
         )}
-        {text && hasText && <span>{t(text)}</span>}
+        {text && hasText && (
+          <span className={styles['main-button-text']}>{t(text)}</span>
+        )}
       </button>
     </div>
   )
