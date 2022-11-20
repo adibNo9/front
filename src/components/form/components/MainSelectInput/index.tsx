@@ -1,11 +1,11 @@
-import { InputLabel, Typography } from '@mui/material'
+import { FC } from 'react'
+import { InputLabel, MenuItem, Typography } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import classNames from 'classnames'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
-import { FC } from 'react'
-import { generateMenu, ArrowIcon, translateItems } from './helper'
-import { useTranslation } from 'next-i18next'
+import { DownArrow } from '@assets/icons/downArrow'
+import { useLogic } from './hooks/useLogis'
 import styles from './styles.module.scss'
 
 interface IMainSelectInput {
@@ -22,21 +22,16 @@ const MainSelectInput: FC<IMainSelectInput> = ({
   stateValue,
   ...otherProps
 }) => {
-  const [translate] = useTranslation()
-  const itemsTexts = translateItems(items, translate)
-  const menu = generateMenu(itemsTexts)
+  const { itemsTexts, placeHolder, titleText } = useLogic(items, title);
 
   const renderValue = (selected: string) => {
-    const placeHolder: string = translate('انتخاب کنید')
-
     if (!selected) {
       return <span>{placeHolder}</span>
     }
-
     return selected
   }
 
-  const titleText: string = translate(title)
+  const ArrowIcon = (props) => <DownArrow {...props} />
 
   return (
     <div>
@@ -58,8 +53,15 @@ const MainSelectInput: FC<IMainSelectInput> = ({
           {...otherProps}
           className='menu-wrapper'
         >
-          {
-            menu
+          {itemsTexts?.map((item: string) => (
+            <MenuItem
+              className={styles['menu-item-wrapper']}
+              key={item}
+              value={item}
+            >
+              {item}
+            </MenuItem>
+          ))
           }
         </Select>
       </FormControl>
