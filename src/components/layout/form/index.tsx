@@ -15,7 +15,7 @@ export interface IFormLayout {
     imageProps: IPic,
 }
 
-const FormLayout: React.FC<IFormLayout> = ({ children, imageProps }) => {
+const FormLayout: React.FC<IFormLayout> = ({ imageProps }) => {
   return (
         <section dir='ltr' className={styles['form-layout-container']}>
             <div className={styles['form-image-wrapper']}>
@@ -25,9 +25,7 @@ const FormLayout: React.FC<IFormLayout> = ({ children, imageProps }) => {
                   />
             </div>
             <main>
-                <FormContainer>
-                    {children}
-                </FormContainer>
+                <FormContainer />
             </main>
         </section>
   )
