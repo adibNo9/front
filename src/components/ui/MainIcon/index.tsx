@@ -1,28 +1,21 @@
+import classNames from 'classnames'
 import React from 'react'
-import Image from 'next/image'
 import styles from './styles.module.scss'
 
 export interface IMainIcon {
   iconName: string
-  width?: number
-  height?: number
+  customClassName?: string
 }
 
-const MainIcon: React.FC<IMainIcon> = ({
-  iconName,
-  width = 19,
-  height = 19,
-}) => {
+const MainIcon: React.FC<IMainIcon> = ({ iconName, customClassName }) => {
   if (!iconName) return null
-  const iconPath = '/assets/images/icons/' + iconName + '.svg'
   return (
     <div className={styles['main-icon-wrapper']}>
-      <Image
-        src={iconPath}
-        alt={iconName}
-        width={width}
-        height={height}
-        priority
+      <i
+        className={
+          [styles[`main-icon`], styles[classNames(customClassName)]].join(' ') +
+          `icon-${iconName}`
+        }
       />
     </div>
   )
