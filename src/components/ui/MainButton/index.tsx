@@ -26,6 +26,7 @@ export interface IMainButton {
   iconName?: string
   text?: string
   customClassName?: string
+  iconCustomClassName?: string
   disabled?: boolean
   onClick: () => void
 }
@@ -37,6 +38,7 @@ const MainButton: React.FC<IMainButton> = ({
   text,
   disabled,
   customClassName,
+  iconCustomClassName,
 }) => {
   /******************************* CONSTANTS *********************************************/
   const { t } = useTranslation()
@@ -61,7 +63,9 @@ const MainButton: React.FC<IMainButton> = ({
         onClick={onClick}
         className={styles['main-button']}
       >
-        {iconName && hasIcon && <MainIcon iconName={iconName} />}
+        {iconName && hasIcon && (
+          <MainIcon iconName={iconName} customClassName={iconCustomClassName} />
+        )}
         {text && hasText && (
           <span className={styles['main-button-text']}>{t(text)}</span>
         )}
