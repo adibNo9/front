@@ -20,6 +20,7 @@ export const useLogic = (
   // TODO[AliMoghimi] translate.
   const placeHolder: string = translate('انتخاب کنید');
 
+  // TODO[AliMoghimi] translate.
   const titleText: string = translate(title);
 
   return {itemsTexts, placeHolder, titleText};
