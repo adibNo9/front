@@ -23,7 +23,7 @@ import '@styles/custom-plugins.css'
 
 import '@styles/custom.css'
 import '@styles/tailwind.css'
-
+import '@styles/fontello.css'
 import 'swiper/css/bundle'
 import { getDirection } from '@utils/get-direction'
 import { AuthGuard } from '@components/guard/auth-guard'
