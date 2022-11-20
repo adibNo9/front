@@ -9,16 +9,17 @@ export interface IMainIcon {
 }
 
 const MainIcon: React.FC<IMainIcon> = ({
-  iconName = 'amp-guitar',
+  iconName,
   width = 19,
   height = 19,
 }) => {
+  if (!iconName) return null
   const iconPath = '/assets/images/icons/' + iconName + '.svg'
   return (
     <div className={styles['main-icon-wrapper']}>
       <Image
         src={iconPath}
-        alt="Picture of the author"
+        alt={iconName}
         width={width}
         height={height}
         priority
