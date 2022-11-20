@@ -1,17 +1,28 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
+import styles from './styles.module.scss'
 
 export interface IMainIcon {
-  iconName?: string
+  iconName: string
+  width?: number
+  height?: number
 }
 
-const MainIcon: React.FC<IMainIcon> = ({ iconName }) => {
+const MainIcon: React.FC<IMainIcon> = ({
+  iconName = 'amp-guitar',
+  width = 19,
+  height = 19,
+}) => {
+  const iconPath = '/assets/images/icons/' + iconName + '.svg'
   return (
-    <div className="icon-wrapper">
-      icon
-      {/* <FontAwesomeIcon icon={faCoffee} className="fal" /> */}
-      <i className="fal fa-tired"></i>
+    <div className={styles['main-icon-wrapper']}>
+      <Image
+        src={iconPath}
+        alt="Picture of the author"
+        width={width}
+        height={height}
+        priority
+      />
     </div>
   )
 }
