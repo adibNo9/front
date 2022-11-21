@@ -6,16 +6,8 @@ import Box from '@mui/material/Box';
 import TabPanel from './components/TabPanel';
 import { useLogic } from './useLogic';
 
-function getTabProps(index: number) {
-  return {
-    id: `tab-${index}`,
-    'aria-controls': `tabpanel-${index}`,
-  };
-}
-
 const FormTabs: React.FC = () => {
-
-  const { value, setValue, register, login , handleChange} = useLogic()
+  const { value, register, login, handleChange, getTabProps} = useLogic()
 
   return (
     <Box className={styles['form-tabs-wrapper']}>

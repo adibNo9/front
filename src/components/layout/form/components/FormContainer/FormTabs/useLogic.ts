@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { useTranslation } from 'next-i18next'
 
 
@@ -13,9 +13,16 @@ export const useLogic = (
   const register: string = translate('ثبت نام');
   const login: string = translate('ورود');
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number): void => {
+  const handleChange = (event: SyntheticEvent, newValue: number): void => {
     setValue(newValue);
   };
 
-  return { value, setValue, register, login , handleChange}
+  const getTabProps = (index: number) => {
+    return {
+      id: `tab-${index}`,
+      'aria-controls': `tabpanel-${index}`,
+    };
+  }
+
+  return { value, setValue, register, login , handleChange, getTabProps}
 }
