@@ -2,8 +2,10 @@ import { LargeCheckIcon } from '@assets/icons/checkLg'
 import { SmallCheckIcon } from '@assets/icons/checkSm'
 import { LargeUncheckIcon } from '@assets/icons/uncheckLg'
 import { SmallUncheckIcon } from '@assets/icons/uncheckSm'
-import React, {  FC,useState } from 'react'
+
+import React, {  FC } from 'react'
 import styles from './styles.module.scss'
+import { useLogic } from './useLogic'
 
 enum checkboxSize {
     sm = 'sm',
@@ -28,13 +30,9 @@ const MainCheckbox: FC<IMainCheckbox> = ({
     defaultValue = false,
     ...otherProps
 }) => {
-    const [isChecked, setIsChecked] = useState<boolean>(defaultValue);
-
-    const handleChange = (): void => {
-        setIsChecked(!isChecked);
-        onChange?.();
-    }
-
+    
+    const {isChecked , setIsChecked, handleChange} = useLogic(defaultValue, onChange);
+   
     const CheckedIcon = size === checkboxSize.sm ? <SmallCheckIcon /> : <LargeCheckIcon />;
     const UncheckIcon = size === checkboxSize.sm ? <SmallUncheckIcon /> : <LargeUncheckIcon />;
 
