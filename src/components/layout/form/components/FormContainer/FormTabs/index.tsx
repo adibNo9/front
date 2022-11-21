@@ -4,28 +4,17 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import TabPanel from './components/TabPanel';
-
-function getTabProps(index: number) {
-  return {
-    id: `tab-${index}`,
-    'aria-controls': `tabpanel-${index}`,
-  };
-}
+import { useLogic } from './useLogic';
 
 const FormTabs: React.FC = () => {
-  // To do: add translation.
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
+  const { value, register, login, handleChange, getTabProps} = useLogic()
 
   return (
     <Box className={styles['form-tabs-wrapper']}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="ثبت نام" {...getTabProps(0)} />
-          <Tab label="ورود" {...getTabProps(1)} />
+          <Tab label={register} {...getTabProps(0)} />
+          <Tab label={login} {...getTabProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

@@ -12,7 +12,7 @@ export interface IFormLayout {
 }
 
 const FormLayout: React.FC<IFormLayout> = () => {
-  // to do: add context and read step from it in form levels.
+  // Todo: add context and read step from it in form levels.
   const stemImages: StaticImageData[] = [
     login,
     changePassword,
