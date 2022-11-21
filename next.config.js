@@ -46,6 +46,7 @@ module.exports = withPWA({
   ) {
     return {
       '/': { page: '/' },
+      './login': { page: './login' },
       '/about': { page: '/about' },
       '/ 404': { page: '/404' },
       '/auth/signup': { page: '/auth/signup' },

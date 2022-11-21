@@ -1,11 +1,11 @@
-import * as React from 'react';
-import styles from './FormTabs.module.scss';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import TabPanel from './components/TabPanel';
-import { useLogic } from './useLogic';
-import LoginForm from 'src/pages/Login/LoginForm'
+import * as React from 'react'
+import styles from './FormTabs.module.scss'
+import Tabs from '@mui/material/Tabs'
+import Tab from '@mui/material/Tab'
+import Box from '@mui/material/Box'
+import TabPanel from './components/TabPanel'
+import { useLogic } from './useLogic'
+import LoginForm from './LoginForm'
 
 const FormTabs: React.FC = () => {
   const { value, register, login, handleChange, getTabProps } = useLogic()

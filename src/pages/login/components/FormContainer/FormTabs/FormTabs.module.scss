@@ -1,0 +1,30 @@
+.form-tabs-wrapper {
+    :global(.MuiTabs-root) {
+        :global(.MuiTabs-scroller){
+            :global(.MuiTabs-indicator) {
+                @apply hidden
+            }
+            :global(.MuiTabs-flexContainer) {
+                
+                :global(.MuiButtonBase-root) {
+                    &:global(.Mui-selected) {
+                        @apply bg-daphne not-italic font-bold text-base leading-6 text-center text-white border-daphne h-9 -translate-y-0.6 scale-y-115 lg:scale-y-110 #{!important};
+                    }
+                    @apply not-italic font-normal text-base leading-6 text-center text-steelBlue w-[156px] md:w-[267px] border-solid border-thin rounded-t h-8 border-daphne md:text-lg ;
+                }
+                
+                @apply flex space-x-2 justify-between;
+            }
+            @apply overflow-visible #{!important};
+        }
+        
+        @apply overflow-visible #{!important};
+    }
+    :global(.MuiBox-root) {
+        &:global(.css-19kzrtu){
+            @apply border-solid border-halfPx border-steelBlue -mt-px bg-white rounded-b-md shadow-formContainer;
+        }
+    }
+    @apply w-80 md:w-[544px];
+
+}

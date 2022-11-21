@@ -3,7 +3,7 @@ import React from 'react'
 import LoginForm from './Login/LoginForm'
 
 const index = () => {
-  return <LoginForm />
+  return <div>index</div>
 }
 
 export default index
