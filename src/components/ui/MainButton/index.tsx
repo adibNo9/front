@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
+import MainIcon from '../MainIcon'
 
 /**
  * Types of button type
@@ -25,6 +26,7 @@ export interface IMainButton {
   iconName?: string
   text?: string
   customClassName?: string
+  iconCustomClassName?: string
   disabled?: boolean
   onClick: () => void
 }
@@ -36,6 +38,7 @@ const MainButton: React.FC<IMainButton> = ({
   text,
   disabled,
   customClassName,
+  iconCustomClassName,
 }) => {
   /******************************* CONSTANTS *********************************************/
   const { t } = useTranslation()
@@ -61,14 +64,7 @@ const MainButton: React.FC<IMainButton> = ({
         className={styles['main-button']}
       >
         {iconName && hasIcon && (
-          /**TODO[Nasrin] use Icon component instead of svg */
-          <svg
-            className="fill-current w-4 h-4 mr-2"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-          </svg>
+          <MainIcon iconName={iconName} customClassName={iconCustomClassName} />
         )}
         {text && hasText && (
           <span className={styles['main-button-text']}>{t(text)}</span>
