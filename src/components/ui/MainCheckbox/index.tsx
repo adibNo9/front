@@ -31,11 +31,11 @@ const MainCheckbox: FC<IMainCheckbox> = ({
     ...otherProps
 }) => {
     
-    const {isChecked , setIsChecked, handleChange} = useLogic(defaultValue, onChange);
+    const {isChecked , setIsChecked, handleChange, labelText} = useLogic(defaultValue, onChange, label);
    
     const CheckedIcon = size === checkboxSize.sm ? <SmallCheckIcon /> : <LargeCheckIcon />;
     const UncheckIcon = size === checkboxSize.sm ? <SmallUncheckIcon /> : <LargeUncheckIcon />;
-
+    
 
     return (
         <div className={styles['main-checkbox']}>
@@ -51,7 +51,7 @@ const MainCheckbox: FC<IMainCheckbox> = ({
                     :
                     UncheckIcon
                 }
-                <label>{label}</label>
+                <label>{labelText}</label>
             </div>
             
         </div >
