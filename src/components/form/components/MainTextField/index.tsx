@@ -53,9 +53,11 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
         onFocus={onFocus}
         {...props}
       />
-      <p id={id}>
-        <span>{validationError}</span>
-      </p>
+      {error && (
+        <p id={id}>
+          <span>{t(validationError)}</span>
+        </p>
+      )}
     </div>
   )
   },

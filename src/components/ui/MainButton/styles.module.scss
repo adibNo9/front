@@ -9,16 +9,16 @@
     }
     @apply w-60 h-8 bg-blueCola rounded;
   }
-  //text-icon-button
+
     /*****************  TEXT ICON BUTTON STYLE ********************/
   &.text-icon-button {
     .main-button {
-      @apply bg-transparent  text-blueCola border-none flex  flex-row  ;
+      @apply bg-transparent  text-blueCola border-none flex flex-row items-center h-8  ;
     }
     &.disabled-button .main-button {
       @apply text-deActiveBlue;
     }
-    @apply bg-white flex-row ;
+    @apply bg-white flex-row h-8 flex items-center ;
   }
   /*****************  TEXT STRUCK LIGHT BUTTON STYLE ********************/
   &.text-struck-light-button {
