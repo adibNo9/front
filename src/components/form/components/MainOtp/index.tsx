@@ -5,6 +5,8 @@ import styles from './styles.module.scss'
 import { useLogic } from './hooks/useLogic'
 
 export interface IOtp {
+  seconds: number
+  minutes: number
   value: string
   valueLength: number
   onChange: (value: string) => void
@@ -12,6 +14,8 @@ export interface IOtp {
 }
 
 const MainOtp: React.FC<IOtp> = ({
+  seconds,
+  minutes,
   value,
   valueLength,
   onChange,
@@ -46,8 +50,8 @@ const MainOtp: React.FC<IOtp> = ({
           textColor={'#464646'}
           background={'#fff'}
           buttonColor={'#a8a8a8'}
-          seconds={59}
-          minutes={1}
+          seconds={seconds}
+          minutes={minutes}
           text="ثانیه  "
           ButtonText="کد دریافت نکرده اید؟ ارسال مجدد"
           resend={resendOtpCode}
