@@ -28,7 +28,7 @@ export interface IMainButton {
   customClassName?: string
   iconCustomClassName?: string
   disabled?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
 const MainButton: React.FC<IMainButton> = ({
@@ -63,11 +63,11 @@ const MainButton: React.FC<IMainButton> = ({
         onClick={onClick}
         className={styles['main-button']}
       >
-        {iconName && hasIcon && (
-          <MainIcon iconName={iconName} customClassName={iconCustomClassName} />
-        )}
         {text && hasText && (
           <span className={styles['main-button-text']}>{t(text)}</span>
+        )}
+        {iconName && hasIcon && (
+          <MainIcon iconName={iconName} customClassName={iconCustomClassName} />
         )}
       </button>
     </div>

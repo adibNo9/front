@@ -18,24 +18,20 @@ export default function LoginForm() {
   // firstName and lastName will have correct type
 
   return (
-    <form onSubmit={onSubmit}>
-      <MainInput {...register('firstName')} label="کدملی" />
-      <MainInput {...register('lastName')} label="رمزعبور" />
-      <MainButton
-        type={ButtonType.textStruckDark}
-        onClick={() => {
-          onSubmit()
-        }}
-        text="ورود"
-      />
+    <>
+      <form onSubmit={onSubmit}>
+        <MainInput {...register('firstName')} label="کدملی" />
+        <MainInput {...register('lastName')} label="رمزعبور" />
+        <MainButton type={ButtonType.textStruckDark} text="ورود" />
+      </form>
       <MainButton
         type={ButtonType.textIcon}
         onClick={() => {
-          //TODO password
+          console.log('hereeeeeeeee')
         }}
         iconName="arrow-left"
         text="یکبار مصرف ورود با رمز"
       />
-    </form>
+    </>
   )
 }
