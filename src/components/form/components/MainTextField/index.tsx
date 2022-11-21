@@ -1,16 +1,17 @@
 import React from 'react'
-
+import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 export interface IMainInput {
   label?: string
-  id: string
-  type: string
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onBlur: () => void
-  onFocus: () => void
+  id?: string
+  name?: string
+  type?: string
+  defaultValue?: string | number
+  onChange?: () => void
+  onBlur?: () => void
+  onFocus?: () => void
   validationError?: string
   error?: boolean
 }
@@ -19,10 +20,11 @@ const MainInput: React.FC<IMainInput> = ({
   label,
   id,
   type,
-  value,
+  defaultValue,
   onChange,
   onBlur,
   onFocus,
+  name,
   validationError = '',
   error,
   ...props
@@ -30,18 +32,19 @@ const MainInput: React.FC<IMainInput> = ({
   const errorStyle = classNames({
     error: error,
   })
-
+  const { t } = useTranslation('common')
   return (
     <div
       className={[styles['textInput-wrapper'], styles[errorStyle]].join(' ')}
     >
       <label htmlFor={id}>
-        <p>{label}</p>
+        <p>{t(label ?? '')}</p>
       </label>
       <input
         id={id}
+        name={name}
         type={type}
-        value={value}
+        defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}
         onFocus={onFocus}

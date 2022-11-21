@@ -1,7 +1,9 @@
+import FormLayout from '@components/layout/form'
 import React from 'react'
+import LoginForm from './Login/LoginForm'
 
 const index = () => {
-  return <div>root page</div>
+  return <LoginForm />
 }
 
 export default index
