@@ -16,20 +16,23 @@ export interface IMainInput {
   error?: boolean
 }
 
-const MainInput: React.FC<IMainInput> = ({
-  label,
-  id,
-  type,
-  defaultValue,
-  onChange,
-  onBlur,
-  onFocus,
-  name,
-  validationError = '',
-  error,
-  ...props
-}) => {
-  const errorStyle = classNames({
+const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
+  (
+    {
+      label,
+      id,
+      type,
+      defaultValue,
+      onChange,
+      onBlur,
+      onFocus,
+      validationError = '',
+      error,
+      ...props
+    },
+    ref,
+  ) => {
+   const errorStyle = classNames({
     error: error,
   })
   const { t } = useTranslation('common')
@@ -41,8 +44,8 @@ const MainInput: React.FC<IMainInput> = ({
         <p>{t(label ?? '')}</p>
       </label>
       <input
+        ref={ref}
         id={id}
-        name={name}
         type={type}
         defaultValue={defaultValue}
         onChange={onChange}
@@ -55,6 +58,7 @@ const MainInput: React.FC<IMainInput> = ({
       </p>
     </div>
   )
-}
+  },
+)
 
 export default MainInput
