@@ -11,6 +11,7 @@
       "global": {
         "title": "dashboard",
         "description": "On this page you can see an overview of your activities",
+        "selectItem": "select an item"
       }
     }
   }
