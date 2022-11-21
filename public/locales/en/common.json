@@ -1,0 +1,17 @@
+{
+    "dashboard": {
+      "header": {
+        "profile": "profile",
+        "conversation": "conversation",
+        "logout": "logout"
+      },
+      "footer": {
+        "test": "test"
+      },
+      "global": {
+        "title": "dashboard",
+        "description": "On this page you can see an overview of your activities",
+      }
+    }
+  }
+  
