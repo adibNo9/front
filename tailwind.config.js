@@ -73,6 +73,8 @@ module.exports = {
         happyThoughts: '#D0E0EC',
         daphne: '#1263A1',
         blueCola: '#007BDA',
+        deActiveBlue: '#B3D8F4',
+        woodCharcoal: '#464646',
         whiteout: '#FBFBFB',
         chocoboFeather: '#FBBD08',
         beluga: '#F1F1F1',
@@ -100,12 +102,6 @@ module.exports = {
         lg: '980px',
         xl: '1440px'
       },
-      // screens: {
-      //   sm: '480px',
-      //   lg: '1025px',
-      //   '2xl': '1500px',
-      //   '3xl': '1780px',
-      // },
       spacing: {
         '430px': '430px',
         '450px': '450px',
