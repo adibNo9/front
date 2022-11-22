@@ -46,10 +46,10 @@ const MainCheckbox: FC<IMainCheckbox> = ({
                 {...otherProps}
             >
                 {isChecked &&
-                    <MainIcon iconName="wifi" customClassName={styles['check-icon']} />
+                    <MainIcon iconName="check" customClassName={styles['check-icon']} />
                 }
             </div>
-                <label>{labelText}</label>
+                <label onClick={handleChange}>{labelText}</label>
 
         </div >
   )

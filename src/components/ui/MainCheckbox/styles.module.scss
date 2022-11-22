@@ -6,7 +6,7 @@
         @apply pointer-events-none opacity-70;
     }
     .check-icon {
-        @apply w-4 h-4 text-blueCola text-xs #{!important};
+        @apply w-4 h-4 text-blueCola text-sm  #{!important};
     }
     .large {
         @apply w-5 h-5;
@@ -14,5 +14,5 @@
     .small {
         @apply w-4 h-4;
     }
-    @apply w-32 h-5 flex items-center;
+    @apply w-32 h-5 flex items-center gap-x-[10px];
 }
