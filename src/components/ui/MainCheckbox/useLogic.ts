@@ -1,21 +1,31 @@
 
-import { useTranslation } from 'next-i18next';
-import React, { useState } from 'react';
+import { useState } from 'react'
+import { useTranslation } from 'next-i18next'
 
-export const useLogic = (
-  defaultValue: boolean,
-  onChange: (() => void) | undefined,
-  label: string| undefined
-) => {
-  const [isChecked, setIsChecked] = useState<boolean>(defaultValue);
+interface IUseLogic {
+  defaultValue?: boolean,
+  onChange?: ((isChecked: boolean) => void) | undefined,
+  label: string | undefined,
+  disabled?: boolean,
+}
+
+export const useLogic = ({
+  defaultValue = false,
+  onChange,
+  label,
+  disabled,
+}: IUseLogic) => {
+  const [isChecked, setIsChecked] = useState<boolean>(defaultValue)
   const [translate] = useTranslation()
 
   const handleChange = (): void => {
-    setIsChecked(!isChecked);
-    onChange?.();
+    if (!disabled) {
+      setIsChecked(!isChecked)
+      onChange?.(!isChecked)
+    }
   }
 
-  const labelText = translate(label);
+  const labelText = translate(label ?? '')
 
-  return {isChecked , setIsChecked, handleChange, labelText}
+  return { isChecked, handleChange, labelText }
 }

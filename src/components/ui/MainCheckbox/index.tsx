@@ -1,11 +1,8 @@
-import { LargeCheckIcon } from '@assets/icons/checkLg'
-import { SmallCheckIcon } from '@assets/icons/checkSm'
-import { LargeUncheckIcon } from '@assets/icons/uncheckLg'
-import { SmallUncheckIcon } from '@assets/icons/uncheckSm'
-
-import React, {  FC } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import { useLogic } from './useLogic'
+import classNames from 'classnames'
+import MainIcon from '../MainIcon'
 
 enum checkboxSize {
     sm = 'sm',
@@ -19,43 +16,43 @@ interface IMainCheckbox {
     disabled?: boolean,
     defaultValue?: boolean
     onChange?: () => void
+    customClassName?: string
 }
 
 const MainCheckbox: FC<IMainCheckbox> = ({
-    label,
-    size,
-    id,
-    disabled,
-    onChange,
-    defaultValue = false,
-    ...otherProps
+  label,
+  size,
+  id,
+  disabled,
+  onChange,
+  defaultValue = false,
+  customClassName,
+  ...otherProps
 }) => {
-    
-    const {isChecked , setIsChecked, handleChange, labelText} = useLogic(defaultValue, onChange, label);
-   
-    const CheckedIcon = size === checkboxSize.sm ? <SmallCheckIcon /> : <LargeCheckIcon />;
-    const UncheckIcon = size === checkboxSize.sm ? <SmallUncheckIcon /> : <LargeUncheckIcon />;
-    
-
-    return (
+  const { isChecked, handleChange, labelText } = useLogic({ defaultValue, disabled, onChange, label });
+  const disabledCLassName = classNames({
+    'disabled-check-box': disabled,
+  })
+  return (
         <div className={styles['main-checkbox']}>
             <div
-                className='w-32 h-32'
+              className={[
+                styles['main-checkbox-container'],
+                styles[disabledCLassName],
+                customClassName,
+              ].join(' ')}
                 onClick={handleChange}
                 id={id}
-                disabled={disabled}
                 {...otherProps}
             >
-                {isChecked ?
-                    CheckedIcon
-                    :
-                    UncheckIcon
+                {isChecked &&
+                    <MainIcon iconName="wifi" customClassName={styles['check-icon']} />
                 }
-                <label>{labelText}</label>
             </div>
-            
+                <label>{labelText}</label>
+
         </div >
-    )
+  )
 }
 
 export default MainCheckbox
