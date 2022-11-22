@@ -22,18 +22,18 @@ const MainCheckbox: FC<IMainCheckbox> = ({
   customClassName,
   ...otherProps
 }) => {
-  const { isChecked, handleChange, labelText } = useLogic({ defaultValue, disabled, onChange, label });
-  const disabledCLassName = classNames({
-    'disabled-check-box': disabled,
-  })
+  const { isChecked, handleChange, labelText, disabledCLassName } = useLogic({ defaultValue, disabled, onChange, label });
+
+  const mainCheckboxContainerClassName = [
+    styles['main-checkbox-container'],
+    styles[disabledCLassName],
+    customClassName,
+  ].join(' ')
+
   return (
         <div className={styles['main-checkbox']}>
             <div
-              className={[
-                styles['main-checkbox-container'],
-                styles[disabledCLassName],
-                customClassName,
-              ].join(' ')}
+                className={mainCheckboxContainerClassName}
                 onClick={handleChange}
                 id={id}
                 {...otherProps}
@@ -42,7 +42,7 @@ const MainCheckbox: FC<IMainCheckbox> = ({
                     <MainIcon iconName="check" customClassName={styles['check-icon']} />
                 }
             </div>
-                <label onClick={handleChange}>{labelText}</label>
+            <label onClick={handleChange}>{labelText}</label>
 
         </div >
   )

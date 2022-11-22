@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
+import classNames from 'classnames'
 
 interface IUseLogic {
   defaultValue?: boolean,
@@ -27,5 +28,9 @@ export const useLogic = ({
 
   const labelText = translate(label ?? '')
 
-  return { isChecked, handleChange, labelText }
+  const disabledCLassName = classNames({
+    'disabled-check-box': disabled,
+  })
+
+  return { isChecked, handleChange, labelText, disabledCLassName, }
 }
