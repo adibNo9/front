@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from 'classnames'
+
 import styles from './styles.module.scss'
 
 export interface IMainIcon {
@@ -12,10 +12,11 @@ const MainIcon: React.FC<IMainIcon> = ({ iconName, customClassName }) => {
   return (
     <div className={styles['main-icon-wrapper']}>
       <i
-        className={
-          [styles[`main-icon`], styles[classNames(customClassName)]].join(' ') +
-          `icon-${iconName}`
-        }
+        className={[
+          styles[`main-icon`],
+          customClassName,
+          `icon-${iconName}`,
+        ].join(' ')}
       />
     </div>
   )
