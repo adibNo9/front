@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import { useLogic } from './useLogic'
-import classNames from 'classnames'
 import MainIcon from '../MainIcon'
 
 interface IMainCheckbox {
