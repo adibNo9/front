@@ -91,6 +91,8 @@ module.exports = {
         deutziaWhite: '#F8FDFD',
         brushBlue: '#D4E2ED',
         error: '#DF2E2E',
+        firewatch: '#F28665',
+        artistBlue: '#062D3E',
       },
       fontSize: {
         '10px': '.625rem',
@@ -100,7 +102,7 @@ module.exports = {
         sm: '480px',
         md: '744px',
         lg: '980px',
-        xl: '1440px'
+        xl: '1440px',
       },
       spacing: {
         '430px': '430px',
@@ -119,7 +121,7 @@ module.exports = {
         115: '1.15',
       },
       translate: {
-        0.6: '0.16rem'
+        0.6: '0.16rem',
       },
       keyframes: {
         shine: {
@@ -146,7 +148,8 @@ module.exports = {
       avatar: '0px 15px 30px rgba(0, 0, 0, 0.16)',
       packageCard: '-1px 2px 6px 0 rgba(212, 226, 237, 1)',
       textInput: '0px 2px 4px #D4E2ED inset',
-      formContainer: '0px 8.00693px 0px #D4E2ED, inset 0px 3.0026px 3.0026px #D4E2ED',
+      formContainer:
+        '0px 8.00693px 0px #D4E2ED, inset 0px 3.0026px 3.0026px #D4E2ED',
     },
     fontFamily: {
       body: ["'Open Sans', sans-serif"],
