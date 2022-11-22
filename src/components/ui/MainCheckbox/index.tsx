@@ -6,7 +6,6 @@ import MainIcon from '../MainIcon'
 
 interface IMainCheckbox {
     label?: string,
-    size: string,
     id?: string,
     disabled?: boolean,
     defaultValue?: boolean
@@ -16,7 +15,6 @@ interface IMainCheckbox {
 
 const MainCheckbox: FC<IMainCheckbox> = ({
   label,
-  size,
   id,
   disabled,
   onChange,
