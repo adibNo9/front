@@ -1,3 +1,4 @@
+import MainSelectInput from '@components/form/components/MainSelectInput'
 import MainInput from '@components/form/components/MainTextField'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import { useForm } from 'react-hook-form'
@@ -9,6 +10,7 @@ type FormData = {
   nationalCode: number
   phoneNumber: number
   email: string
+  level: string
 }
 
 export default function RegisterForm() {
@@ -45,23 +47,31 @@ export default function RegisterForm() {
           validationError={'لطفا کد ملی خود را وارد کنید'}
           pattern="[0-9]"
         />
+        <MainSelectInput
+          {...register('level')}
+          label="رشته و پایه خود را انتخاب کنید"
+          items={['ابتدایی']}
+        />
         <MainInput
           {...register('phoneNumber')}
           label="شماره تلفن همراه"
           pattern="[0-9]"
         />
         <MainInput {...register('email')} label="ایمیل" pattern="[0-9]" />
-        <MainButton type={ButtonType.textStruckDark} text="ورود" />
+        <MainButton
+          type={ButtonType.textStruckDark}
+          text="تایید اطلاعات و ارسال کد"
+        />
       </form>
-      <MainButton
+      {/* <MainButton
         type={ButtonType.textIcon}
         onClick={() => {
           console.log('hereeeeeeeee')
         }}
         customClassName=""
         iconName="arrow-left"
-        text=" ورود با رمز یکبار مصرف"
-      />
+        text="وارد"
+      /> */}
     </div>
   )
 }
