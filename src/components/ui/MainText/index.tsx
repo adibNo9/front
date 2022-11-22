@@ -32,7 +32,7 @@ const MainText: FC<TextProps> = ({
        textDecoration:decoration
     }}
     >
-   <Trans  t={t}   components={{ italic: <i />, bold: <strong /> }}>
+   <Trans  t={t} components={{ italic: <i />, bold: <strong /> }}>
 {children}
    </Trans>
 
