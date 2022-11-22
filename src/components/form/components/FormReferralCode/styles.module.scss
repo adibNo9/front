@@ -1,3 +1,26 @@
-.form-referral-code {
-    @apply flex justify-between;
+.form-referral-code-wrapper {
+    #header{
+        label {
+            @apply not-italic text-base  font-normal leading-6 text-center text-blueCola font-yekanBakh;
+        }
+        .icon {
+            button{
+                i{
+                    &:before {
+                        @apply w-3 h-3;
+                    }
+                }
+                
+                @apply bg-red-600 text-Firewatch bg-transparent border-none;
+            }
+            @apply text-white;
+        }
+        @apply flex justify-between pr-1 pl-6 md:pl-8;
+    }
+    .referral-input-wrapper {
+        div {
+            @apply w-full #{!important};
+        }   
+    }
+    @apply flex flex-col;
 }

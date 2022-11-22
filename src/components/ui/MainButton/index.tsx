@@ -55,7 +55,7 @@ const MainButton: React.FC<IMainButton> = ({
         styles[`main-button-wrapper`],
         styles[type],
         styles[disabledCLassName],
-        styles[classNames(customClassName)],
+        customClassName
       ].join(' ')}
     >
       <button

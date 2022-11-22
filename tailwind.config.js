@@ -91,6 +91,7 @@ module.exports = {
         deutziaWhite: '#F8FDFD',
         brushBlue: '#D4E2ED',
         error: '#DF2E2E',
+        Firewatch: '#F28665',
       },
       fontSize: {
         '10px': '.625rem',
