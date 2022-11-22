@@ -14,6 +14,7 @@ export interface IMainInput {
   onFocus?: () => void
   validationError?: string
   error?: boolean
+  pattern: string
 }
 
 const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
@@ -28,38 +29,40 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
       onFocus,
       validationError = '',
       error,
+      pattern,
       ...props
     },
     ref,
   ) => {
-   const errorStyle = classNames({
-    error: error,
-  })
-  const { t } = useTranslation('common')
-  return (
-    <div
-      className={[styles['textInput-wrapper'], styles[errorStyle]].join(' ')}
-    >
-      <label htmlFor={id}>
-        <p>{t(label ?? '')}</p>
-      </label>
-      <input
-        ref={ref}
-        id={id}
-        type={type}
-        defaultValue={defaultValue}
-        onChange={onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
-        {...props}
-      />
-      {error && (
-        <p id={id}>
-          <span>{t(validationError)}</span>
-        </p>
-      )}
-    </div>
-  )
+    const errorStyle = classNames({
+      error: error,
+    })
+    const { t } = useTranslation('common')
+    return (
+      <div
+        className={[styles['textInput-wrapper'], styles[errorStyle]].join(' ')}
+      >
+        <label htmlFor={id}>
+          <p>{t(label ?? '')}</p>
+        </label>
+        <input
+          ref={ref}
+          id={id}
+          type={type}
+          defaultValue={defaultValue}
+          onChange={onChange}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          pattern={pattern}
+          {...props}
+        />
+        {error && (
+          <p id={id}>
+            <span>{t(validationError)}</span>
+          </p>
+        )}
+      </div>
+    )
   },
 )
 

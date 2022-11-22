@@ -4,11 +4,14 @@ import { useForm } from 'react-hook-form'
 import styles from './FormTabs.module.scss'
 
 type FormData = {
+  name: string
+  family: string
   nationalCode: number
-  password: number
+  phoneNumber: number
+  email: string
 }
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const {
     register,
     handleSubmit,
@@ -22,6 +25,20 @@ export default function LoginForm() {
     <div dir="rtl" className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
         <MainInput
+          {...register('name', { required: true })}
+          label="نام"
+          error={!!errors?.nationalCode}
+          validationError={'لطفا نام خود را وارد کنید'}
+          pattern="[A-Za-z]"
+        />
+        <MainInput
+          {...register('family', { required: true })}
+          label="نام خانوادگی"
+          error={!!errors?.nationalCode}
+          validationError={'لطفا نام خانوادگی خود را وارد کنید'}
+          pattern="[A-Za-z]"
+        />
+        <MainInput
           {...register('nationalCode', { required: true })}
           label="کدملی"
           error={!!errors?.nationalCode}
@@ -29,11 +46,11 @@ export default function LoginForm() {
           pattern="[0-9]"
         />
         <MainInput
-          {...register('password', { required: true })}
-          label="رمزعبور"
-          error={!!errors?.password}
-          validationError={'لطفا رمز عبور خود را وارد کنید'}
+          {...register('phoneNumber')}
+          label="شماره تلفن همراه"
+          pattern="[0-9]"
         />
+        <MainInput {...register('email')} label="ایمیل" pattern="[0-9]" />
         <MainButton type={ButtonType.textStruckDark} text="ورود" />
       </form>
       <MainButton

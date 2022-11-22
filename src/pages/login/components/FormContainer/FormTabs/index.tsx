@@ -6,6 +6,7 @@ import Box from '@mui/material/Box'
 import TabPanel from './components/TabPanel'
 import { useLogic } from './useLogic'
 import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 
 const FormTabs: React.FC = () => {
   const { value, register, login, handleChange, getTabProps } = useLogic()
@@ -23,7 +24,7 @@ const FormTabs: React.FC = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Register form component
+        <RegisterForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <LoginForm />
