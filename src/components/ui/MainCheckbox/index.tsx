@@ -4,11 +4,6 @@ import { useLogic } from './useLogic'
 import classNames from 'classnames'
 import MainIcon from '../MainIcon'
 
-enum checkboxSize {
-    sm = 'sm',
-    lg = 'lg'
-};
-
 interface IMainCheckbox {
     label?: string,
     size: string,
