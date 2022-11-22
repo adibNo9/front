@@ -21,6 +21,7 @@ export const Colors = {
   brushBlue: '#D4E2ED',
   error: '#DF2E2E',
   woodCharcoal: '#464646',
+  firewatch: '#F28665',
 }
 
 export const theme = createTheme({
