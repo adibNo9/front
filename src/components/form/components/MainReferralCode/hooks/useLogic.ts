@@ -1,18 +1,17 @@
 import { useTranslation } from 'next-i18next';
 import { ChangeEvent, useState } from 'react';
 
-interface IFormReferralCodeLogic {
+interface IMainReferralCodeLogic {
     value?: string,
     label: string,
     onChange: (e: ChangeEvent<HTMLInputElement>, textValue: string) => void,
 }
 
-
 export const useLogic = ({
   value,
   label,
   onChange,
-}: IFormReferralCodeLogic) => {
+}: IMainReferralCodeLogic) => {
   const [textValue, setTextValue] = useState<string>(value || '');
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const { t } = useTranslation();
@@ -24,7 +23,10 @@ export const useLogic = ({
 
   const handleClick = () => {
     setIsVisible(!isVisible);
-   if (isVisible){onChange?.("");  setTextValue( '');}
+    if (isVisible) {
+      onChange?.({}, '');
+      setTextValue('');
+    }
   }
 
   const iconName: string = isVisible ? 'xmark' : 'plus';

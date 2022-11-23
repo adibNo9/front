@@ -4,7 +4,7 @@ import MainInput from '../MainTextField'
 import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
 
-interface IFormReferralCode {
+interface IMainReferralCode {
   id: string,
   label: string,
   value?: string,
@@ -15,7 +15,7 @@ interface IFormReferralCode {
   error?: boolean
 }
 
-const FormReferralCode: FC<IFormReferralCode> = ({
+const MainReferralCode: FC<IMainReferralCode> = ({
   id,
   label,
   onChange,
@@ -65,4 +65,4 @@ const FormReferralCode: FC<IFormReferralCode> = ({
   )
 }
 
-export default FormReferralCode
+export default MainReferralCode
