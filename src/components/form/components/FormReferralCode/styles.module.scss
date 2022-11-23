@@ -1,7 +1,10 @@
 .form-referral-code-wrapper {
     #header{
         label {
-            @apply not-italic text-base mb-2 md:mb-5 font-normal leading-6 text-center text-blueCola font-yekanBakh;
+            @apply not-italic text-base mb-2 md:mb-5 font-normal leading-6 text-center text-blueCola;
+        }
+        .textInput-wrapper{
+            @apply mt-0;
         }
         .icon {
             button{

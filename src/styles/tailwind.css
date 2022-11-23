@@ -7,8 +7,11 @@
     font-family: yekanBakh;
     src: url(../assets/font/Yekan\ Bakh\ Fa-En\ 04\ Regular.ttf);
   }
-}
 
+}
+body{
+  font-family: yekanBakh; 
+}
 .MuiList-root.MuiList-padding.MuiMenu-list.css-6hp17o-MuiList-root-MuiMenu-list {
   @apply py-0 rounded-none;
 }
