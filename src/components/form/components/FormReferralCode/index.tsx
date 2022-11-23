@@ -32,7 +32,7 @@ const FormReferralCode: FC<IFormReferralCode> = ({
     handleChange,
     handleClick,
     iconName
-  } = useLogic({ value, onChange })
+  } = useLogic({ value, label, onChange })
 
   return (
     <div className={styles['form-referral-code-wrapper']}>
