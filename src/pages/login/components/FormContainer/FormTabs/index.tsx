@@ -18,8 +18,9 @@ const FormTabs: React.FC = () => {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          variant="fullWidth"
         >
-         <Tab label={login} aria-selected={true} {...getTabProps(0)} />
+         <Tab label={login} aria-selected={true} {...getTabProps(0)} style={{marginLeft:".75em"}} />
           <Tab label={register} {...getTabProps(1)} />
          
         </Tabs>
