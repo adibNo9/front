@@ -1,6 +1,7 @@
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import { ChangeEvent, FC, useState } from 'react'
 import MainInput from '../MainTextField'
+import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
 
 interface IFormReferralCode {
@@ -25,21 +26,13 @@ const FormReferralCode: FC<IFormReferralCode> = ({
   error,
   ...otherProps
 }) => {
-  const [textValue, setTextValue] = useState<string>(value || '');
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTextValue(event.target.value);
-    onChange?.(event, textValue);
-  }
-
-  const handleClick = () => {
-    const EMPTY_TEXT = '';
-    setIsVisible(!isVisible);
-    isVisible || setTextValue(EMPTY_TEXT);
-  }
-
-  const iconName: string = isVisible ? 'xmark' : 'plus';
+  const {
+    textValue,
+    isVisible,
+    handleChange,
+    handleClick,
+    iconName
+  } = useLogic({ value, onChange })
 
   return (
     <div className={styles['form-referral-code-wrapper']}>
