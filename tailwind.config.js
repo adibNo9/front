@@ -148,6 +148,7 @@ module.exports = {
       packageCard: '-1px 2px 6px 0 rgba(212, 226, 237, 1)',
       textInput: '0px 2px 4px #D4E2ED inset',
       formContainer: '0px 8.00693px 0px #D4E2ED, inset 0px 3.0026px 3.0026px #D4E2ED',
+      checkBox: '0px 1px 2px #ACACAC inset'
     },
     fontFamily: {
       body: ["'Open Sans', sans-serif"],
