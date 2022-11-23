@@ -10,7 +10,9 @@ interface TextProps {
   size?:string;
   onClick?: () => void;
   children?: ReactNode;
+  value?: ReactNode;
   decoration?:string;
+  components?:any;
 }
 
 const MainText: FC<TextProps> = ({
@@ -19,9 +21,10 @@ const MainText: FC<TextProps> = ({
     size,
    onClick,
    children,
-   decoration
+   decoration,
+   value,
 }) => {
-    const { t } = useTranslation()
+ 
   return (
     <span
     onClick={onClick}
@@ -32,13 +35,9 @@ const MainText: FC<TextProps> = ({
        textDecoration:decoration
     }}
     >
-   <Trans  t={t} components={{ italic: <i />, bold: <strong /> }}>
-{children}
-   </Trans>
-
-
-
-
+   <Trans i18nKey={value}>
+ {children}
+</Trans>
     </span>
   );
 };
