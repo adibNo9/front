@@ -1,5 +1,5 @@
-import { useTranslation } from "next-i18next";
-import { ChangeEvent, useState } from "react";
+import { useTranslation } from 'next-i18next';
+import { ChangeEvent, useState } from 'react';
 
 interface IFormReferralCodeLogic {
     value?: string,

@@ -1,5 +1,5 @@
 import MainButton, { ButtonType } from '@components/ui/MainButton'
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC } from 'react'
 import MainInput from '../MainTextField'
 import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
