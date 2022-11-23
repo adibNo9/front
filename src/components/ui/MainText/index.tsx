@@ -4,14 +4,13 @@ import { FC, ReactNode } from 'react';
 
 
 interface TextProps {
-  className?: string;
+  customClassName?: string;
   color?: string;
   weight?: string;
   size?:string;
   onClick?: () => void;
-  children?:any;
+  children?:string;
   value?:string;
-  decoration?:string;
   trans?:string;
 }
 
@@ -21,7 +20,6 @@ const MainText: FC<TextProps> = ({
     size,
    onClick,
    children,
-   decoration,
    value,
 }) => {
  
@@ -31,8 +29,7 @@ const MainText: FC<TextProps> = ({
     style={{
        color: color,
        fontWeight:weight,
-       fontSize:size,
-       textDecoration:decoration
+       fontSize:size
     }}
     >
    <Trans i18nKey={value}>
