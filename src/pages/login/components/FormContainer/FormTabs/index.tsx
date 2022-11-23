@@ -19,15 +19,16 @@ const FormTabs: React.FC = () => {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label={register} {...getTabProps(0)} />
-          <Tab label={login} {...getTabProps(1)} />
+         <Tab label={login} aria-selected={true} {...getTabProps(0)} />
+          <Tab label={register} {...getTabProps(1)} />
+         
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <RegisterForm />
+         <LoginForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <LoginForm />
+       <RegisterForm />
       </TabPanel>
     </Box>
   )
