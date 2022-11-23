@@ -23,9 +23,8 @@ export const useLogic = ({
   }
 
   const handleClick = () => {
-    const EMPTY_TEXT = '';
     setIsVisible(!isVisible);
-    isVisible || setTextValue(EMPTY_TEXT);
+   if (isVisible){onChange?.("");  setTextValue( '');}
   }
 
   const iconName: string = isVisible ? 'xmark' : 'plus';

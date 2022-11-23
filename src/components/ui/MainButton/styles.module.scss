@@ -1,4 +1,10 @@
 .main-button-wrapper {
+  &.icon-button{
+    .main-button {
+      @apply bg-transparent border-none    w-8 h-8;
+    }
+    @apply  w-8 h-8;
+  }
   /********************  TEXT STRUCK DARK BUTTON STYLE ******************/
   &.text-struck-dark-button {
     .main-button {

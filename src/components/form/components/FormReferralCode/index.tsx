@@ -41,7 +41,7 @@ const FormReferralCode: FC<IFormReferralCode> = ({
         <MainButton
           type={ButtonType.icon}
           iconName={iconName}
-          customClassName={styles['icon']}
+          iconCustomClassName={styles['icon']}
           onClick={handleClick}
         />
       </div>
