@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 export interface IMainInput {
+  value: string
+  regEx: string
   label?: string
   id: string
   type: string
-  value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onBlur: () => void
-  onFocus: () => void
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void
+  onFocus: (e: React.FocusEvent<HTMLInputElement>) => void
   validationError?: string
   error?: boolean
 }
@@ -18,10 +19,11 @@ export interface IMainInput {
 const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
   (
     {
+      value,
+      regEx,
       label,
       id,
       type,
-      value,
       onChange,
       onBlur,
       onFocus,
@@ -31,6 +33,30 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
     },
     ref,
   ) => {
+    const [inputValue, setInputValue] = useState<string>('')
+    const RE_DIGIT = new RegExp(regEx)
+
+    useEffect(() => {
+      const isTargetValueDigit = RE_DIGIT.test(value)
+
+      if (!isTargetValueDigit && value !== '') {
+        return
+      }
+      setInputValue(value)
+    }, [])
+
+    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const target = e.target
+      let targetValue = target.value
+
+      const isTargetValueDigit = RE_DIGIT.test(targetValue)
+
+      if (!isTargetValueDigit && targetValue !== '') {
+        return
+      }
+      setInputValue(e.target.value)
+      onChange?.(e)
+    }
     const errorStyle = classNames({
       error: error,
     })
@@ -43,11 +69,12 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
           <p>{label}</p>
         </label>
         <input
+          pattern={regEx}
           id={id}
           type={type}
-          value={value}
+          value={inputValue}
           ref={ref}
-          onChange={onChange}
+          onChange={changeHandler}
           onBlur={onBlur}
           onFocus={onFocus}
           {...props}
