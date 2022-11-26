@@ -1,4 +1,4 @@
-import MainInput from '@components/form/components/MainTextField'
+import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useForm } from 'react-hook-form'

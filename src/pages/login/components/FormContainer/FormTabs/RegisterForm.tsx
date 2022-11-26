@@ -1,5 +1,5 @@
 import MainSelectInput from '@components/form/components/MainSelectInput'
-import MainInput from '@components/form/components/MainTextField'
+import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainCheckbox from '@components/ui/MainCheckbox'
 import MainText from '@components/ui/MainText'

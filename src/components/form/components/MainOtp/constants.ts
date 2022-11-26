@@ -1,1 +1,1 @@
-export const RE_DIGIT = new RegExp(/^\d+$/)
+export const reDigit = new RegExp(/^\d+$/)

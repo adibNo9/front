@@ -1,4 +1,4 @@
-import MainInput from '@components/form/components/MainTextField'
+import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useForm } from 'react-hook-form'
@@ -18,7 +18,7 @@ export default function LoginForm() {
   const onSubmit = handleSubmit(data => {
     //TODO login request
   })
-  
+
   return (
     <div dir="rtl" className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
