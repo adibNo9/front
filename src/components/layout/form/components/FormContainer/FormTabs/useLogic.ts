@@ -13,7 +13,7 @@ export const useLogic = (
   const register: string = translate('ثبت نام');
   const login: string = translate('ورود');
 
-  const handleChange = (event: SyntheticEvent, newValue: number): void => {
+  const handleChange = (_event: SyntheticEvent, newValue: number): void => {
     setValue(newValue);
   };
 
