@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { DownArrow } from '@assets/icons/downArrow'
-import { useLogic } from './hooks/useLogis'
+import { useLogic } from './hooks/useLogics'
 import styles from './styles.module.scss'
 
 interface IMainSelectInput {
