@@ -13,7 +13,7 @@ const MainIcon: React.FC<IMainIcon> = ({ iconName, customClassName }) => {
     <div className={styles['main-icon-wrapper']}>
       <i
         className={[
-          styles[`main-icon`],
+          styles['main-icon'],
           customClassName,
           `icon-${iconName}`,
         ].join(' ')}

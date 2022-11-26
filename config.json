@@ -1339,6 +1339,42 @@
       "search": ["arrow-right-long"]
     },
     {
+      "uid": "ce50292e85eb5d6ee3be61b32bf2bdf3",
+      "css": "ok",
+      "code": 59432,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "14017aae737730faeda4a6fd8fb3a5f0",
+      "css": "check",
+      "code": 59443,
+      "src": "entypo"
+    },
+    {
+      "uid": "30092e0ee1c7e29973a28fc483a2c8b8",
+      "css": "check-1",
+      "code": 59464,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M865.8 196.7C878.1 208.8 878.1 228.7 865.8 240.8L334.6 772.1C322.5 784.4 302.5 784.4 290.4 772.1L9.2 490.8C-3.1 478.7-3.1 458.8 9.2 446.7 21.3 434.4 41.1 434.4 53.3 446.7L312.5 705.9 821.7 196.7C833.8 184.5 853.7 184.5 865.8 196.7H865.8Z",
+        "width": 875
+      },
+      "search": ["check"]
+    },
+    {
+      "uid": "43fl9m553j1z5937vfjz0lgolrlspxwl",
+      "css": "ok-1",
+      "code": 59496,
+      "src": "typicons"
+    },
+    {
+      "uid": "2a6740fc2f9d0edea54205963f662594",
+      "css": "spin3",
+      "code": 59508,
+      "src": "fontelico"
+    },
+    {
       "uid": "519342e3be9d313ad16498a6d4ea63ed",
       "css": "ballot-check",
       "code": 59432,
