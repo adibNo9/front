@@ -6,7 +6,7 @@ import { useLogic } from './hooks/useLogic'
 
 export interface IOtp {
   seconds: number
-  minutes: number
+  minutes?: number
   value: string
   valueLength: number
   onChange: (value: string) => void
