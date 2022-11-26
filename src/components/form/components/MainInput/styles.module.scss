@@ -1,4 +1,7 @@
 .textInput-wrapper {
+  .label-wrapper {
+    @apply flex justify-between;
+  }
   &.error {
     label {
       p {
@@ -6,14 +9,17 @@
       }
     }
     input {
-      @apply border-thin border-solid shadow-red-100 border-error;
+      @apply border-thin border-solid shadow-red-100 border-error focus:border-error;
+    }
+    p {
+      @apply text-error;
     }
   }
   label {
     p {
       @apply my-1 text-daphne text-[15px];
     }
-    @apply flex static w-full justify-start origin-top-right  mr-1;
+    @apply mr-1;
   }
   input {
     @apply bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput border-thin border-transparent px-1 pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
@@ -22,7 +28,7 @@
     span {
       @apply mr-1 text-xs;
     }
-    @apply text-right my-1 text-error;
+    @apply text-right my-0 text-transparent;
   }
-  @apply flex flex-col  my-2.5  font-yekanBakh w-72 sm:w-96;
+  @apply flex flex-col  font-yekanBakh w-72 sm:w-96;
 }
