@@ -1,44 +1,40 @@
-import { useTranslation } from 'next-i18next';
-import { Trans } from 'next-i18next';
-import { FC, ReactNode } from 'react';
-
+import { Trans } from 'next-i18next'
+import { FC, ReactNode } from 'react'
 
 interface TextProps {
-  customClassName?: string;
-  color?: string;
-  weight?: string;
-  size?:string;
-  onClick?: () => void;
-  children?:string;
-  value?:string;
-  trans?:string;
+  className?: string
+  color?: string
+  weight?: string
+  size?: string
+  onClick?: () => void
+  children?: ReactNode
+  value?: ReactNode
+  decoration?: string
+  components?: any
 }
 
 const MainText: FC<TextProps> = ({
-    color,
-    weight,
-    size,
-   onClick,
-   children,
-   value,
+  color,
+  weight,
+  size,
+  onClick,
+  children,
+  decoration,
+  value,
 }) => {
- 
   return (
     <span
-    onClick={onClick}
-    style={{
-       color: color,
-       fontWeight:weight,
-       fontSize:size
-    }}
+      onClick={onClick}
+      style={{
+        color: color,
+        fontWeight: weight,
+        fontSize: size,
+        textDecoration: decoration,
+      }}
     >
-   <Trans i18nKey={value}>
- {children}
-</Trans>
+      <Trans i18nKey={value}>{children}</Trans>
     </span>
-  );
-};
+  )
+}
 
-
-
-export default MainText;
+export default MainText
