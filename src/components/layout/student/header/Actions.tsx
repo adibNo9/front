@@ -3,12 +3,17 @@ import React from 'react'
 import styles from './styles.module.scss'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 
-const Actions = () => {
+const Actions: React.FC<{
+  onAngleRight: () => void
+  onEnvelopeClick: () => void
+  onLogoClick: () => void
+  onSearchClick: () => void
+}> = ({ onAngleRight, onEnvelopeClick, onLogoClick, onSearchClick }) => {
   return (
     <div className={styles['header-actions']}>
       <MainButton
         type={ButtonType.icon}
-        onClick={() => console.log('icon clicked')}
+        onClick={onAngleRight}
         iconName="angle-right-1"
         iconCustomClassName={styles['icon']}
         customClassName={styles['icon-button']}
@@ -16,19 +21,19 @@ const Actions = () => {
       <MainButton
         type={ButtonType.text}
         text={'داناجو'}
-        onClick={() => console.log('danajo logo')}
+        onClick={onLogoClick}
         customClassName={styles['danaju-logo']}
       />
       <MainButton
         type={ButtonType.icon}
-        onClick={() => console.log('icon clicked')}
+        onClick={onEnvelopeClick}
         iconName="envelope"
         iconCustomClassName={styles['icon']}
         customClassName={styles['icon-button']}
       />
       <MainButton
         type={ButtonType.icon}
-        onClick={() => console.log('icon clicked')}
+        onClick={onSearchClick}
         iconName="magnifying-glass"
         iconCustomClassName={styles['icon']}
         customClassName={styles['icon-button']}

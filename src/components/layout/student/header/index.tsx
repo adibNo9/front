@@ -5,16 +5,31 @@ import MainButton, { ButtonType } from '@components/ui/MainButton'
 import styles from './styles.module.scss'
 
 const MainHeader: React.FC = () => {
+  const buyButtonHandler = () => {}
+
+  const angleRightHandler = () => {}
+
+  const logoClickHandler = () => {}
+
+  const envelopeClickHandler = () => {}
+
+  const searchClickHandler = () => {}
+
   return (
     <>
       <div className={styles['header-container']}>
         <div className={styles['header-item-actions']}>
-          <Actions />
+          <Actions
+            onAngleRight={angleRightHandler}
+            onLogoClick={logoClickHandler}
+            onEnvelopeClick={envelopeClickHandler}
+            onSearchClick={searchClickHandler}
+          />
         </div>
         <div className={styles['header-item-profile']}>
           <MainButton
             type={ButtonType.smallTextStruckDark}
-            onClick={() => console.log('خرید اشتراک')}
+            onClick={buyButtonHandler}
             text={'خرید اشتراک'}
             customClassName={styles['buy-button']}
           />

@@ -11,7 +11,6 @@ import {
 } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { styled, alpha } from '@mui/material/styles'
-// import { VectorIcon } from 'src/assets/icons/vectorIcon'
 import { PuzzleIcon } from '@assets/icon/PuzzleIcon'
 import styles from './styles.module.scss'
 import MainIcon from '@components/ui/MainIcon'
