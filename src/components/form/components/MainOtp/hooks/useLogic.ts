@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { RE_DIGIT } from '../constants'
+import { reDigit } from '../constants'
 
 export const useLogic = (
   value: string,
@@ -13,7 +13,7 @@ export const useLogic = (
     for (let i = 0; i < valueLength; i++) {
       const char = valueArray[i]
 
-      if (RE_DIGIT.test(char)) {
+      if (reDigit.test(char)) {
         items.push(char)
       } else {
         items.push('')
@@ -46,7 +46,7 @@ export const useLogic = (
   ) => {
     const target = e.target
     let targetValue = target.value
-    const isTargetValueDigit = RE_DIGIT.test(targetValue)
+    const isTargetValueDigit = reDigit.test(targetValue)
 
     if (!isTargetValueDigit && targetValue !== '') {
       return
