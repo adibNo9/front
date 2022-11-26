@@ -7,9 +7,12 @@ import TabPanel from './components/TabPanel'
 import { useLogic } from './useLogic'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
+import { ILoginStep } from 'src/pages/login'
+import ForgetPassWordForm from './ForgetPassWordForm'
 
 const FormTabs: React.FC = () => {
-  const { value, register, login, handleChange, getTabProps } = useLogic()
+  const { value, register, login, handleChange, getTabProps, loginStep } =
+    useLogic()
 
   return (
     <Box className={styles['form-tabs-wrapper']}>
@@ -20,16 +23,21 @@ const FormTabs: React.FC = () => {
           aria-label="basic tabs example"
           variant="fullWidth"
         >
-         <Tab label={login} aria-selected={true} {...getTabProps(0)} style={{marginLeft:".75em"}} />
+          <Tab
+            label={login}
+            aria-selected={true}
+            {...getTabProps(0)}
+            style={{ marginLeft: '.75em' }}
+          />
           <Tab label={register} {...getTabProps(1)} />
-         
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-         <LoginForm />
+        {loginStep === ILoginStep.login && <LoginForm />}
+        {loginStep === ILoginStep.changePassword && <ForgetPassWordForm />}
       </TabPanel>
       <TabPanel value={value} index={1}>
-       <RegisterForm />
+        <RegisterForm />
       </TabPanel>
     </Box>
   )

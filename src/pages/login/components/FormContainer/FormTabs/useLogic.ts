@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import { ILoginStep, LoginStepContext } from 'src/pages/login'
 
 export const useLogic = () => {
-  const { setLoginStep } = useContext(LoginStepContext)
+  const { setLoginStep, loginStep } = useContext(LoginStepContext)
   const [value, setValue] = useState(0)
   // Todo[AliMoghimi] translation.
   const [translate] = useTranslation()
@@ -24,5 +24,13 @@ export const useLogic = () => {
     }
   }
 
-  return { value, setValue, register, login, handleChange, getTabProps }
+  return {
+    value,
+    setValue,
+    register,
+    login,
+    handleChange,
+    getTabProps,
+    loginStep,
+  }
 }
