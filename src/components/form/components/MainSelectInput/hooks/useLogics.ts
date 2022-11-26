@@ -1,16 +1,15 @@
 import { TFunction, useTranslation } from 'next-i18next'
 
 
-export const useLogic = (
-  items: string[],
-  title: string,
-) => {
-    // TODO[AliMoghimi] translate.
+export const useLogic = (items: string[], label: string) => {
+  // TODO[AliMoghimi] translate.
   const [translate] = useTranslation()
 
   const translateItems = (items: string[], translate: TFunction): string[] => {
     // TODO[AliMoghimi] translate.
-    const itemsTexts: string[] = items.map((item: string): string => translate(item))
+    const itemsTexts: string[] = items.map((item: string): string =>
+      translate(item),
+    )
 
     return itemsTexts
   }
@@ -18,10 +17,10 @@ export const useLogic = (
   const itemsTexts = translateItems(items, translate)
 
   // TODO[AliMoghimi] translate.
-  const placeHolder: string = translate('انتخاب کنید');
+  const placeHolder: string = translate('انتخاب کنید')
 
   // TODO[AliMoghimi] translate.
-  const titleText: string = translate(title);
+  const titleText: string = translate(label)
 
-  return {itemsTexts, placeHolder, titleText};
+  return { itemsTexts, placeHolder, titleText }
 }
