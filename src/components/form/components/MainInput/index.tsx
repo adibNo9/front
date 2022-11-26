@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 export interface IMainInput {
+  extraComponent?: React.ReactElement
   value: string
   regEx: string
   label?: string
@@ -19,6 +20,7 @@ export interface IMainInput {
 const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
   (
     {
+      extraComponent,
       value,
       regEx,
       label,
@@ -65,9 +67,12 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
       <div
         className={[styles['textInput-wrapper'], styles[errorStyle]].join(' ')}
       >
-        <label htmlFor={id}>
-          <p>{label}</p>
-        </label>
+        <div className={styles['label-wrapper']}>
+          <label htmlFor={id}>
+            <p>{label}</p>
+          </label>
+          {extraComponent}
+        </div>
         <input
           pattern={regEx}
           id={id}
