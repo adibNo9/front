@@ -1,6 +1,8 @@
 import MainSelectInput from '@components/form/components/MainSelectInput'
 import MainInput from '@components/form/components/MainTextField'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainCheckbox from '@components/ui/MainCheckbox'
+import MainText from '@components/ui/MainText'
 import { useForm } from 'react-hook-form'
 import styles from './FormTabs.module.scss'
 
@@ -11,6 +13,7 @@ type FormData = {
   phoneNumber: number
   email: string
   level: string
+  acceptRules: boolean
 }
 
 export default function RegisterForm() {
@@ -19,9 +22,9 @@ export default function RegisterForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>()
-  const onSubmit = handleSubmit(data => console.log(data))
-  // firstName and lastName will have correct type
-  console.log('here', errors?.nationalCode)
+  const onSubmit = handleSubmit(data => {
+    //TODO Register API
+  })
 
   return (
     <div dir="rtl" className={styles['login-form-container']}>
@@ -58,20 +61,22 @@ export default function RegisterForm() {
           pattern="[0-9]"
         />
         <MainInput {...register('email')} label="ایمیل" pattern="[0-9]" />
+        <MainCheckbox
+          {...register('acceptRules')}
+          label="شرایط استفاده از خدمات  و قوانین حریم خصوصی "
+        />
         <MainButton
           type={ButtonType.textStruckDark}
+          customClassName={styles['register-button']}
           text="تایید اطلاعات و ارسال کد"
         />
       </form>
-      {/* <MainButton
-        type={ButtonType.textIcon}
-        onClick={() => {
-          console.log('hereeeeeeeee')
-        }}
-        customClassName=""
-        iconName="arrow-left"
-        text="وارد"
-      /> */}
+      <MainText
+        color="black"
+        size="12px"
+        weight="bold"
+        children={`اگر قبلا ثبت نام کردیده اید وارد سامانه شوید`}
+      />
     </div>
   )
 }

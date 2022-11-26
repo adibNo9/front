@@ -1,5 +1,6 @@
 import MainInput from '@components/form/components/MainTextField'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainText from '@components/ui/MainText'
 import { useForm } from 'react-hook-form'
 import styles from './FormTabs.module.scss'
 
@@ -9,16 +10,15 @@ type FormData = {
 }
 
 export default function LoginForm() {
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>()
-  const onSubmit = handleSubmit(data => console.log(data))
-  // firstName and lastName will have correct type
-  console.log('here', errors?.nationalCode)
-
+  const onSubmit = handleSubmit(data => {
+    //TODO login request
+  })
+  
   return (
     <div dir="rtl" className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
@@ -35,16 +35,24 @@ export default function LoginForm() {
           error={!!errors?.password}
           validationError={'لطفا رمز عبور خود را وارد کنید'}
         />
-        <MainButton type={ButtonType.textStruckDark} text="ورود" />
+        <MainButton
+          customClassName={styles['login-button']}
+          type={ButtonType.textStruckDark}
+          text="ورود"
+        />
       </form>
       <MainButton
         type={ButtonType.textIcon}
-        onClick={() => {
-          console.log('hereeeeeeeee')
-        }}
-        customClassName=""
+        onClick={() => {}}
+        customClassName={styles['login-arrow-button']}
         iconName="arrow-left"
         text=" ورود با رمز یکبار مصرف"
+      />
+      <MainText
+        color="black"
+        size="12px"
+        weight="bold"
+        children={`حساب کاربری ندارید؟ ثبت نام کنید و 7 روز اشتراک هدیه بگیرید`}
       />
     </div>
   )

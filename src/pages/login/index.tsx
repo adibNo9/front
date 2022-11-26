@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import FormContainer from './components/FormContainer/FormTabs'
 import styles from './FormLayout.module.scss'
 import login from '@assets/images/login.png'
@@ -7,10 +7,9 @@ import changePassword from '@assets/images/changePassword.png'
 import otp from '@assets/images/otp.png'
 import signup from '@assets/images/signup.png'
 
-export enum ButtonType {
+export enum ILoginStep {
   login = 'login',
   signup = 'signup',
-  forgetPassWord = 'forgetPassWord',
   changePassword = 'changePassword',
   otp = 'otp',
 }
@@ -21,28 +20,20 @@ const imageComponent = {
   changePassword: changePassword,
   otp: otp,
 }
-interface ILoginState {
-  step: ButtonType
-}
-const LoginStepContext = React.createContext({ step: ButtonType.login })
 
-export interface IFormLayout {
-  children?: React.ReactNode
-}
+export const LoginStepContext = React.createContext(ILoginStep.login)
 
-const FormLayout: React.FC<IFormLayout> = () => {
-  const [loginState, setLoginState] = useState<ILoginState>({
-    step: ButtonType.login,
-  })
+const FormLayout: React.FC = () => {
+  const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
 
   return (
-    <LoginStepContext.Provider value={{ loginState, setLoginState }}>
+    <LoginStepContext.Provider value={{ loginStep, setLoginStep }}>
       <section className={styles['form-layout-container']}>
         <main>
           <FormContainer />
         </main>
         <div className={styles['form-image-wrapper']}>
-          <Image src={imageComponent?.[loginState?.step]} />
+          <Image src={imageComponent[loginStep]} />
         </div>
       </section>
     </LoginStepContext.Provider>
