@@ -34,10 +34,10 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
     ref,
   ) => {
     const [inputValue, setInputValue] = useState<string>('')
-    const RE_DIGIT = new RegExp(regEx)
+    const regExp = new RegExp(regEx)
 
     useEffect(() => {
-      const isTargetValueDigit = RE_DIGIT.test(value)
+      const isTargetValueDigit = regExp.test(value)
 
       if (!isTargetValueDigit && value !== '') {
         return
@@ -49,7 +49,7 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
       const target = e.target
       let targetValue = target.value
 
-      const isTargetValueDigit = RE_DIGIT.test(targetValue)
+      const isTargetValueDigit = regExp.test(targetValue)
 
       if (!isTargetValueDigit && targetValue !== '') {
         return
