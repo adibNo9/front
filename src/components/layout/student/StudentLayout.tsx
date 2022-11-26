@@ -1,23 +1,22 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import dynamic from 'next/dynamic'
 
-const Header = dynamic(
-  () => import('@components/layout/student/header/header'),
-  { ssr: false },
-)
+const MainHeader = dynamic(() => import('@components/layout/student/header'), {
+  ssr: false,
+})
 
 const Footer = dynamic(
   () => import('@components/layout/student/footer/footer'),
   { ssr: false },
 )
 
-const StudentLayout: React.FC = ({ children }) => {
+const StudentLayout = ({ children }: { children: ReactElement }) => {
   return (
-   <div className="test">
-     <Header />
-     {children}
-     <Footer/>
-   </div>
+    <div className="test">
+      <MainHeader />
+      {children}
+      <Footer />
+    </div>
   )
 }
 
