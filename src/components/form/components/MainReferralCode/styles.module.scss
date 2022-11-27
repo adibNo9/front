@@ -1,7 +1,7 @@
 .form-referral-code-wrapper {
     #header{
         label {
-            @apply not-italic text-base mb-2 md:mb-5 font-normal leading-6 text-center text-blueCola;
+            @apply not-italic flex items-center text-base font-normal leading-6 text-center text-blueCola;
         }
         .textInput-wrapper{
             @apply mt-0;
@@ -9,7 +9,7 @@
         .icon {
             @apply text-firewatch #{!important}
         }
-        @apply flex justify-between pr-1 pl-6 md:pl-6;
+        @apply flex justify-between pr-1 pl-5 md:pl-6;
     }
     .referral-input-wrapper {
         div {
