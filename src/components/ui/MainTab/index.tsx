@@ -1,38 +1,38 @@
 import { Box, Tab, TabProps, Tabs } from "@mui/material";
 import styles from './styles.module.scss'
 import React, { useState } from 'react';
-import TabPanel from "@components/layout/form/components/FormContainer/FormTabs/components/TabPanel";
+import TabPanel from "../TabPanel";
+
 export enum TabType {
     twixTab = 'twixTab',
     pillTab ='pillTab'
   }
-  
+ 
   export interface IMainTab {
     type: TabType
-    tabs?: string
+    tabs?: any
     label:string
-    margin:string
+    variant:string
+    value:string
     Component:string
     disabled?: boolean
     onClick?: () => void
+    className:string
+    onChange?: () => void
   }
-  function MainTab({type,tabs,label,Component,margin }:IMainTab) {
+  function MainTab({type,tabs,label,Component,onChange,value,variant}:IMainTab) {
 
-    const [value, setValue] = useState(0);
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-      setValue(newValue);
-    };
     return (
-      <Box >
-        <Box className={styles[type]} >
+      <Box  className={styles["twixTab"]}>
+        <Box >
           <Tabs
             value={value}
-            onChange={handleChange}
+            onChange={onChange} 
+            variant={variant}
             aria-label="basic tabs example"
           >
             {tabs.map(({ label }, i) => (
-              <Tab label={label} key={i} style={{margin:margin}} />
+              <Tab label={label} key={i}  />
             ))}
           </Tabs>
         </Box>
