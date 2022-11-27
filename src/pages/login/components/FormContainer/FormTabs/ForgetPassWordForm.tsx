@@ -1,6 +1,8 @@
 import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
+import { getDirection } from '@utils/get-direction'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import styles from './FormTabs.module.scss'
 
@@ -18,9 +20,10 @@ export default function ForgetPassWordForm() {
   const onSubmit = handleSubmit(data => {
     //TODO login request
   })
-
+  const { locale } = useRouter()
+  const dir = getDirection(locale)
   return (
-    <div dir="rtl" className={styles['login-form-container']}>
+    <div dir={dir} className={styles['login-form-container']}>
       <MainText
         color="black"
         size="12px"

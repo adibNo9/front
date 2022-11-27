@@ -5,6 +5,8 @@ import MainCheckbox from '@components/ui/MainCheckbox'
 import MainText from '@components/ui/MainText'
 import { useForm } from 'react-hook-form'
 import styles from './FormTabs.module.scss'
+import { useRouter } from 'next/router'
+import { getDirection } from '@utils/get-direction'
 
 type FormData = {
   name: string
@@ -25,9 +27,10 @@ export default function RegisterForm() {
   const onSubmit = handleSubmit(data => {
     //TODO Register API
   })
-
+  const { locale } = useRouter()
+  const dir = getDirection(locale)
   return (
-    <div dir="rtl" className={styles['login-form-container']}>
+    <div dir={dir} className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
         <MainInput
           {...register('name', { required: true })}
