@@ -11,6 +11,7 @@ export interface IMainInput {
   label?: string
   id?: string
   type?: string
+  customClassName?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -34,6 +35,7 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
       validationError = '',
       error,
       maxLength,
+      customClassName,
       ...props
     },
     ref,
@@ -69,7 +71,11 @@ const MainInput = React.forwardRef<HTMLInputElement, IMainInput>(
 
     return (
       <div
-        className={[styles['textInput-wrapper'], styles[errorStyle]].join(' ')}
+        className={[
+          styles['textInput-wrapper'],
+          styles[errorStyle],
+          customClassName,
+        ].join(' ')}
       >
         <div className={styles['label-wrapper']}>
           <label htmlFor={id}>

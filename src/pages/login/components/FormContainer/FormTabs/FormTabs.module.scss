@@ -35,6 +35,9 @@
     }
     @apply flex flex-col items-center;
   }
+  .forget-password-input{
+    @apply mt-10 mb-52
+  }
   .login-button {
     @apply mt-10;
   }

@@ -13,12 +13,14 @@ export enum ILoginStep {
   login = 'login',
   signup = 'signup',
   changePassword = 'changePassword',
+  forgetPassWord = 'forgetPassWord',
   otp = 'otp',
 }
 
 const imageComponent = {
   login: login,
   signup: signup,
+  forgetPassWord: changePassword,
   changePassword: changePassword,
   otp: otp,
 }

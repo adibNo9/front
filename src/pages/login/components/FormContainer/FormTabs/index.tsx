@@ -35,7 +35,7 @@ const FormTabs: React.FC = () => {
       </Box>
       <TabPanel value={value} index={0}>
         {loginStep === ILoginStep.login && <LoginForm />}
-        {loginStep === ILoginStep.changePassword && <ForgetPassWordForm />}
+        {loginStep === ILoginStep.forgetPassWord && <ForgetPassWordForm />}
         {loginStep === ILoginStep.otp && <OTPForm />}
       </TabPanel>
       <TabPanel value={value} index={1}>

@@ -16,8 +16,8 @@ export default function OTPForm() {
       />
       <MainOtp
         seconds={15}
-        onChange={e => {
-          setValue(e?.target?.value)
+        onChange={value => {
+          setValue(value)
         }}
         resendOtpCode={() => {}}
         valueLength={5}

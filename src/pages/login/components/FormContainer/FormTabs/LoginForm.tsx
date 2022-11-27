@@ -45,7 +45,7 @@ export default function LoginForm() {
             <MainButton
               type={ButtonType.text}
               onClick={() => {
-                setLoginStep(ILoginStep.changePassword)
+                setLoginStep(ILoginStep.forgetPassWord)
               }}
               text="فراموشی رمز عبور"
             />
