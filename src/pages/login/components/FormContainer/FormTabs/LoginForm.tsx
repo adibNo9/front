@@ -1,7 +1,9 @@
 import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { ILoginStep, LoginStepContext } from 'src/pages/login'
 import styles from './FormTabs.module.scss'
 
 type FormData = {
@@ -10,6 +12,7 @@ type FormData = {
 }
 
 export default function LoginForm() {
+  const { setLoginStep } = useContext(LoginStepContext)
   const {
     register,
     handleSubmit,
@@ -38,6 +41,15 @@ export default function LoginForm() {
           error={!!errors?.password}
           type="password"
           validationError={'لطفا رمز عبور خود را وارد کنید'}
+          extraComponent={
+            <MainButton
+              type={ButtonType.text}
+              onClick={() => {
+                setLoginStep(ILoginStep.changePassword)
+              }}
+              text="فراموشی رمز عبور"
+            />
+          }
         />
         <MainButton
           customClassName={styles['login-button']}
