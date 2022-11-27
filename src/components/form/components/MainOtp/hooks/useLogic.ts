@@ -7,11 +7,11 @@ export const useLogic = (
   onChange: (value: string) => void,
 ) => {
   const valueItems = useMemo(() => {
-    const valueArray = value.split('')
+    const valueArray = value?.split('')
     const items: Array<string> = []
 
     for (let i = 0; i < valueLength; i++) {
-      const char = valueArray[i]
+      const char = valueArray?.[i]
 
       if (reDigit.test(char)) {
         items.push(char)

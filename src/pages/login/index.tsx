@@ -6,15 +6,10 @@ import login from '@assets/images/login.png'
 import changePassword from '@assets/images/changePassword.png'
 import otp from '@assets/images/otp.png'
 import signup from '@assets/images/signup.png'
-import dynamic from 'next/dynamic'
-const SectionContainer = dynamic(
-  () => import('@containers/class/section-container'),
-  { ssr: false },
-)
-export enum ButtonType {
+
+export enum ILoginStep {
   login = 'login',
   signup = 'signup',
-  forgetPassWord = 'forgetPassWord',
   changePassword = 'changePassword',
   otp = 'otp',
 }
@@ -25,30 +20,22 @@ const imageComponent = {
   changePassword: changePassword,
   otp: otp,
 }
-interface ILoginState {
-  step: ButtonType
-}
-const LoginStepContext = React.createContext({ step: ButtonType.login })
 
-export interface IFormLayout {
-  children?: React.ReactNode
-}
+export const LoginStepContext = React.createContext(ILoginStep.login)
 
-const FormLayout: React.FC<IFormLayout> = () => {
-  const [loginState, setLoginState] = useState<ILoginState>({
-    step: ButtonType.login,
-  })
+const FormLayout: React.FC = () => {
+  const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
 
   return (
-    <LoginStepContext.Provider value={{ loginState, setLoginState }}>
-      <SectionContainer className={styles['form-layout-container']}>
-        <main >
-          <FormContainer  />
+    <LoginStepContext.Provider value={{ loginStep, setLoginStep }}>
+      <section className={styles['form-layout-container']}>
+        <main>
+          <FormContainer />
         </main>
         <div className={styles['form-image-wrapper']}>
-          <Image src={imageComponent?.[loginState?.step]} />
+          <Image src={imageComponent[loginStep]} />
         </div>
-      </SectionContainer>
+      </section>
     </LoginStepContext.Provider>
   )
 }
