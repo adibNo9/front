@@ -32,7 +32,8 @@ export default function ForgetPassWordForm() {
           label="کدملی"
           error={!!errors?.nationalCode}
           validationError={'لطفا کد ملی خود را وارد کنید'}
-          pattern="[0-9]"
+          regEx="^[0-9]*$"
+          maxLength={10}
         />
       </form>
       <MainButton

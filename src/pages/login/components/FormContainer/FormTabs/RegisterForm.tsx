@@ -33,21 +33,22 @@ export default function RegisterForm() {
           label="نام"
           error={!!errors?.nationalCode}
           validationError={'لطفا نام خود را وارد کنید'}
-          pattern="[A-Za-z]"
+          regEx="^[A-Za-z]*$"
         />
         <MainInput
           {...register('family', { required: true })}
           label="نام خانوادگی"
           error={!!errors?.nationalCode}
           validationError={'لطفا نام خانوادگی خود را وارد کنید'}
-          pattern="[A-Za-z]"
+          regEx="^[A-Za-z]*$"
         />
         <MainInput
           {...register('nationalCode', { required: true })}
           label="کدملی"
           error={!!errors?.nationalCode}
           validationError={'لطفا کد ملی خود را وارد کنید'}
-          pattern="[0-9]"
+          regEx="^[0-9]*$"
+          maxLength={10}
         />
         <MainSelectInput
           {...register('level')}
@@ -57,9 +58,14 @@ export default function RegisterForm() {
         <MainInput
           {...register('phoneNumber')}
           label="شماره تلفن همراه"
-          pattern="[0-9]"
+          regEx="^[0-9]*$"
+          maxLength={10}
         />
-        <MainInput {...register('email')} label="ایمیل" pattern="[0-9]" />
+        <MainInput
+          {...register('email')}
+          label="ایمیل"
+          regEx="^[A-Z0-9+_.-]+@[A-Z0-9.-]+$"
+        />
         <MainCheckbox
           {...register('acceptRules')}
           label="شرایط استفاده از خدمات  و قوانین حریم خصوصی "

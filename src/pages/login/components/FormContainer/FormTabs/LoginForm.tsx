@@ -20,19 +20,23 @@ export default function LoginForm() {
   })
 
   return (
-    <div  className={styles['login-form-container']}>
+    <div className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
         <MainInput
-          {...register('nationalCode', { required: true })}
+          {...register('nationalCode', {
+            required: 'لطفا کد ملی خود را وارد کنید',
+          })}
           label="کدملی"
           error={!!errors?.nationalCode}
-          validationError={'لطفا کد ملی خود را وارد کنید'}
-          pattern="[0-9]"
+          validationError={errors?.nationalCode?.message}
+          regEx="^[0-9]*$"
+          maxLength={10}
         />
         <MainInput
           {...register('password', { required: true })}
           label="رمزعبور"
           error={!!errors?.password}
+          type="password"
           validationError={'لطفا رمز عبور خود را وارد کنید'}
         />
         <MainButton
@@ -43,7 +47,7 @@ export default function LoginForm() {
       </form>
       <MainButton
         type={ButtonType.textIcon}
-        onClick={() => {}}
+        onClick={e => {}}
         customClassName={styles['login-arrow-button']}
         iconName="arrow-left"
         text=" ورود با رمز یکبار مصرف"
