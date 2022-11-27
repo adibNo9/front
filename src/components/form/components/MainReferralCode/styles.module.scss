@@ -9,12 +9,12 @@
         .icon {
             @apply text-firewatch #{!important}
         }
-        @apply flex justify-between pr-1 pl-6 md:pl-8;
+        @apply flex justify-between pr-1 pl-6 md:pl-6;
     }
     .referral-input-wrapper {
         div {
             @apply w-full #{!important};
         }   
     }
-    @apply flex flex-col;
+    @apply flex flex-col w-full;
 }
