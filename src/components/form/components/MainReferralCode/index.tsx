@@ -12,7 +12,7 @@ interface IMainReferralCode {
   onChange: (e: ChangeEvent<HTMLInputElement>, textValue: string) => void,
   onBlur: (e: FocusEvent<HTMLInputElement>) => void,
   onFocus: (e: FocusEvent<HTMLInputElement>) => void,
-  validationError?: string
+  validationError?: string,
   error?: boolean
 }
 
