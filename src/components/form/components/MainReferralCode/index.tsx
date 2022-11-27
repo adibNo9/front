@@ -1,4 +1,5 @@
 import MainButton, { ButtonType } from '@components/ui/MainButton'
+import { ReferralType } from '@framework/types'
 import { ChangeEvent, FC } from 'react'
 import MainInput from '../MainTextField'
 import { useLogic } from './hooks/useLogic'
@@ -34,6 +35,8 @@ const MainReferralCode: FC<IMainReferralCode> = ({
     iconName
   } = useLogic({ value, label, onChange })
 
+ const type: ReferralType['text'] = 'text'
+
   return (
     <div className={styles['form-referral-code-wrapper']}>
       <div id={styles['header']}>
@@ -50,7 +53,7 @@ const MainReferralCode: FC<IMainReferralCode> = ({
         <div className={styles['referral-input-wrapper']}>
           <MainInput
             id={id}
-            type='text'
+            type={type}
             value={textValue}
             onBlur={onBlur}
             onFocus={onFocus}
