@@ -1,11 +1,11 @@
 
-import { useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 
 interface IUseLogic {
   defaultValue?: boolean,
-  onChange?: ((isChecked: boolean) => void) | undefined,
+  onChange?: ((e: SyntheticEvent ,isChecked: boolean) => void) | undefined,
   label: string | undefined,
   disabled?: boolean,
 }
@@ -19,10 +19,10 @@ export const useLogic = ({
   const [isChecked, setIsChecked] = useState<boolean>(defaultValue)
   const [translate] = useTranslation()
 
-  const handleChange = (): void => {
+  const handleChange = (event: SyntheticEvent): void => {
     if (!disabled) {
       setIsChecked(!isChecked)
-      onChange?.(!isChecked)
+      onChange?.(event, !isChecked)
     }
   }
 
