@@ -1,5 +1,5 @@
 .main-select-input-wrapper {
-    @apply flex flex-col sm:w-96;
+    @apply w-full flex flex-col sm:w-96;
     :global(label){
         @apply flex static w-full justify-start origin-top-right text-daphne mr-1;
     }
@@ -7,6 +7,11 @@
         @apply not-italic text-[15px] font-normal leading-6 text-center text-daphne mr-4;
     }
     :global(.MuiInputBase-root) {
+            &:hover {
+                fieldset {
+                    @apply border-none #{!important};
+                }
+            }
         @apply bg-lightBlue h-8 shadow-textInput flex-none order-1 grow-0 rounded-md pt-1 hover:border-lightBlue;
     }
     :global(.MuiInputBase-root input){
@@ -16,7 +21,10 @@
         @apply border-transparent;
     }
     :global(.css-yccci7-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline){
-        @apply border-none;
+        @apply border-none ;
+    }
+    :global(.css-1qvg0lp-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline){
+        @apply border-thin border-daphne outline-none #{!important};
     }
     :global(.MuiInputBase-root .MuiSelect-select){
         @apply not-italic font-normal text-sm leading-6 text-center text-steelBlue opacity-80;
