@@ -1,18 +1,20 @@
 {
-    "dashboard": {
-      "header": {
-        "profile": "profile",
-        "conversation": "conversation",
-        "logout": "logout"
-      },
-      "footer": {
-        "test": "test"
-      },
-      "global": {
-        "title": "dashboard",
-        "description": "On this page you can see an overview of your activities",
-        "selectItem": "select an item"
-      }
+  "dashboard": {
+    "header": {
+      "profile": "profile",
+      "conversation": "conversation",
+      "logout": "logout"
+    },
+    "footer": {
+      "test": "test"
+    },
+    "global": {
+      "title": "dashboard",
+      "description": "On this page you can see an overview of your activities",
+      "selectItem": "select an item"
     }
+  },
+  "register": {
+    "referralCode": "Get 25 points by adding the reference code"
   }
-  
+}

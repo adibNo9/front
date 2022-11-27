@@ -1,14 +1,15 @@
-import React, { FC } from 'react'
+import React, {SyntheticEvent, FC } from 'react'
 import styles from './styles.module.scss'
 import { useLogic } from './useLogic'
 import MainIcon from '../MainIcon'
 
 interface IMainCheckbox {
     label?: string,
+    name?: string,
     id?: string,
     disabled?: boolean,
     defaultValue?: boolean
-    onChange?: () => void
+    onChange?: (e: SyntheticEvent, isChecked: boolean) => void
     customClassName?: string
 }
 
@@ -18,6 +19,7 @@ const MainCheckbox: FC<IMainCheckbox> = ({
   disabled,
   onChange,
   defaultValue = false,
+  name,
   customClassName,
   ...otherProps
 }) => {
@@ -40,6 +42,7 @@ const MainCheckbox: FC<IMainCheckbox> = ({
                 {isChecked &&
                     <MainIcon iconName="check" customClassName={styles['check-icon']} />
                 }
+                <input type='checkbox' name={name} />
             </div>
             <label onClick={handleChange}>{labelText}</label>
 

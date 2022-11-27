@@ -1,0 +1,20 @@
+.form-referral-code-wrapper {
+    #header{
+        label {
+            @apply not-italic flex items-center text-base font-normal leading-6 text-center text-blueCola;
+        }
+        .textInput-wrapper{
+            @apply mt-0;
+        }
+        .icon {
+            @apply text-firewatch #{!important}
+        }
+        @apply flex justify-between pr-1 pl-5 md:pl-6;
+    }
+    .referral-input-wrapper {
+        div {
+            @apply w-full #{!important};
+        }   
+    }
+    @apply flex flex-col w-full;
+}
