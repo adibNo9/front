@@ -1,7 +1,7 @@
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import { ReferralType } from '@framework/types'
 import { ChangeEvent, FC } from 'react'
-import MainInput from '../MainTextField'
+import MainInput from '@components/form/components/MainInput/index'
 import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
 
@@ -53,6 +53,7 @@ const MainReferralCode: FC<IMainReferralCode> = ({
         <div className={styles['referral-input-wrapper']}>
           <MainInput
             id={id}
+            regEx={'^[A-Za-z0-9]*$'}
             type={type}
             value={textValue}
             onBlur={onBlur}
