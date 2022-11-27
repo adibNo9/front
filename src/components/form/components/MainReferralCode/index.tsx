@@ -1,6 +1,6 @@
+import { ChangeEvent, FocusEvent, FC } from 'react'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import { ReferralType } from '@framework/types'
-import { ChangeEvent, FC } from 'react'
 import MainInput from '@components/form/components/MainInput/index'
 import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
@@ -10,8 +10,8 @@ interface IMainReferralCode {
   label: string,
   value?: string,
   onChange: (e: ChangeEvent<HTMLInputElement>, textValue: string) => void,
-  onBlur: () => void,
-  onFocus: () => void,
+  onBlur: (e: FocusEvent<HTMLInputElement>) => void,
+  onFocus: (e: FocusEvent<HTMLInputElement>) => void,
   validationError?: string
   error?: boolean
 }
