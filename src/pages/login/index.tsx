@@ -6,6 +6,8 @@ import login from '@assets/images/login.png'
 import changePassword from '@assets/images/changePassword.png'
 import otp from '@assets/images/otp.png'
 import signup from '@assets/images/signup.png'
+import { useRouter } from 'next/router'
+import { getDirection } from '@utils/get-direction'
 
 export enum ILoginStep {
   login = 'login',
@@ -25,10 +27,11 @@ export const LoginStepContext = React.createContext(ILoginStep.login)
 
 const FormLayout: React.FC = () => {
   const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
-
+  const { locale } = useRouter()
+  const dir = getDirection(locale)
   return (
     <LoginStepContext.Provider value={{ loginStep, setLoginStep }}>
-      <section className={styles['form-layout-container']}>
+      <section dir={dir} className={styles['form-layout-container']}>
         <main>
           <FormContainer />
         </main>
