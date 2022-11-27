@@ -16,9 +16,9 @@ export default class CustomDocument extends Document {
     const { locale } = this.props.__NEXT_DATA__
 
     return (
-      <Html dir={getDirection(locale)}>
+      <Html className="h-full w-full flex m-0" dir={getDirection(locale)}>
         <Head />
-        <body>
+        <body className="h-full w-full flex m-0">
           <Main />
           <NextScript />
         </body>

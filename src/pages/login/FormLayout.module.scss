@@ -1,9 +1,9 @@
 .form-layout-container {
     main {
-        @apply mx-auto;
+        @apply mx-auto p-14;
     }
     .form-image-wrapper {
-        @apply hidden lg:block;
-    }
-    @apply flex my-14 w-auto lg:mx-14 md:mx-6 sm:mx-20 xs:mx-5 ;
+        @apply  hidden py-14  lg:px-14 lg:visible lg:flex lg:flex-1 lg:justify-center lg:items-center  md:px-6 sm:px-20 xs:px-5 ;
+    } 
+    @apply flex w-full h-full m-0 ;
 }
