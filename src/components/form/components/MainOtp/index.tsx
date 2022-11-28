@@ -6,8 +6,6 @@ import { useLogic } from './hooks/useLogic'
 import classNames from 'classnames'
 
 export interface IOtp {
-  seconds: number
-  minutes?: number
   value: string
   valueLength: number
   validCode: string
@@ -17,8 +15,6 @@ export interface IOtp {
 }
 
 const MainOtp: React.FC<IOtp> = ({
-  seconds,
-  minutes,
   value,
   valueLength,
   onChange,
@@ -26,6 +22,8 @@ const MainOtp: React.FC<IOtp> = ({
   validationFn,
   resendOtpCode,
 }) => {
+  const seconds = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
+  const minutes = process.env.OTP_TIMER_MINUTES
   const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus, isValid } =
     useLogic(value, valueLength, onChange, validationFn, validCode)
   const errorValidation = classNames({

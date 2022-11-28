@@ -22,7 +22,6 @@ export default function OTPForm() {
       <MainOtp
         validCode="12345"
         validationFn={validation}
-        seconds={15}
         onChange={value => {
           setValue(value)
         }}
