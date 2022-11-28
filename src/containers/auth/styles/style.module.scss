@@ -1,0 +1,22 @@
+
+  .login-form-container {
+    form {
+      @apply flex flex-col items-center;
+    }
+    @apply flex flex-col items-center;
+  }
+  .forget-password-input{
+    @apply mt-10 mb-52
+  }
+  .login-button {
+    @apply mt-10;
+  }
+  .login-arrow-button {
+    @apply mt-4 mb-10;
+  }
+  .register-button{
+    @apply mt-9 mb-5
+  }
+
+  
+

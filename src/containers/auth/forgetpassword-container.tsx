@@ -1,10 +1,10 @@
-import MainInput from '@components/form/components/MainInput'
+import MainInput from '@components/ui/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { ILoginStep, LoginStepContext } from 'src/pages/auth'
-import styles from './FormTabs.module.scss'
+import styles from './styles/style.module.scss'
 
 type FormData = {
   nationalCode: number

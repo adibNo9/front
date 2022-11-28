@@ -1,5 +1,6 @@
-import { Trans } from 'next-i18next'
-import { FC, ReactNode } from 'react'
+import { Trans } from 'next-i18next';
+import { FC } from 'react';
+
 
 interface TextProps {
   className?: string
