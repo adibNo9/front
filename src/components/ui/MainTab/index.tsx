@@ -1,6 +1,6 @@
-import { Box, Tab, TabProps, Tabs } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import styles from './styles.module.scss'
-import React, { useState } from 'react';
+import React from 'react';
 import TabPanel from "../TabPanel";
 
 export enum TabType {
@@ -10,33 +10,31 @@ export enum TabType {
  
   export interface IMainTab {
     type: TabType
-    tabs?: any
-    label:string
-    variant:string
-    value:string
-    Component:string
+    tabs:{ label: string, Component: string }[]| undefined
+    variant?: "fullWidth" | "standard" | "scrollable" | undefined
+    value: number
     disabled?: boolean
     onClick?: () => void
     className:string
     onChange?: () => void
   }
-  function MainTab({type,tabs,label,Component,onChange,value,variant}:IMainTab) {
+  function MainTab({onChange,value,variant,tabs}:IMainTab) {
 
     return (
       <Box  className={styles["twixTab"]}>
         <Box >
           <Tabs
-            value={value}
+           value={value}
             onChange={onChange} 
             variant={variant}
             aria-label="basic tabs example"
           >
-            {tabs.map(({ label }, i) => (
+            {tabs?.map(({ label },i) => (
               <Tab label={label} key={i}  />
             ))}
           </Tabs>
         </Box>
-        {tabs.map(({ Component }, i) => (
+        {tabs?.map(({ Component },i) => (
           <TabPanel value={value} index={i} key={i}>
             {Component}
           </TabPanel>
