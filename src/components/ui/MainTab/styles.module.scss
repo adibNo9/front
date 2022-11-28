@@ -1,0 +1,41 @@
+.twixTab {
+    :global(.MuiTabs-root) {
+        :global(.MuiTabs-scroller){
+            :global(.MuiTabs-indicator) {
+                @apply hidden
+            }
+
+            :global(.MuiTabs-flexContainer) {
+                
+                :global(.MuiButtonBase-root) {
+                   &:global(.MuiTab-root){
+                   @apply  p-0 min-h-0 ml-[.3em] last:ml-0;
+                   }
+                    &:global(.Mui-selected) {
+                        @apply bg-daphne not-italic font-bold text-base leading-6 text-center text-white border-daphne  h-[2.1rem] -translate-y-0.6 scale-y-115 lg:scale-y-110 #{!important};
+                    }
+                    @apply  not-italic font-normal text-base leading-6 text-center text-steelBlue border-solid border-thin rounded-t h-8 border-daphne md:text-lg ;
+                }
+                
+                @apply flex  justify-between;
+            }
+            @apply overflow-visible #{!important};
+        }
+        
+        @apply    -mb-4 overflow-visible #{!important};
+    }
+    :global(.MuiBox-root) {
+        &:global(.css-19kzrtu){
+            @apply border-solid border-halfPx border-steelBlue -mt-px bg-white rounded-b-md shadow-formContainer;
+        }
+    }
+
+    .login-form-container{
+        form{
+             @apply flex flex-col items-center
+        }
+        @apply flex flex-col items-center
+    }
+
+
+}
