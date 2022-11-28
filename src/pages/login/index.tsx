@@ -8,6 +8,7 @@ import otp from '@assets/images/otp.png'
 import signup from '@assets/images/signup.png'
 import { useRouter } from 'next/router'
 import { getDirection } from '@utils/get-direction'
+import classNames from 'classnames'
 
 export enum ILoginStep {
   login = 'login',
@@ -29,6 +30,9 @@ export const LoginStepContext = React.createContext(ILoginStep.login)
 
 const FormLayout: React.FC = () => {
   const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
+  const isImageBottomAlignment =
+    loginStep === ILoginStep.changePassword ||
+    loginStep === ILoginStep.forgetPassWord
   const { locale } = useRouter()
   const dir = getDirection(locale)
   return (
@@ -37,7 +41,12 @@ const FormLayout: React.FC = () => {
         <main>
           <FormContainer />
         </main>
-        <div className={styles['form-image-wrapper']}>
+        <div
+          className={[
+            styles['form-image-wrapper'],
+            isImageBottomAlignment ? styles['image-bottom-alignment'] : '',
+          ].join(' ')}
+        >
           <Image src={imageComponent[loginStep]} />
         </div>
       </section>
