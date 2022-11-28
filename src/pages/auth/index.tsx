@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import FormContainer from './components/FormContainer/FormTabs'
+import FormContainer from '../login/components/FormContainer/FormTabs'
 import styles from './FormLayout.module.scss'
 import login from '@assets/images/login.png'
 import changePassword from '@assets/images/changePassword.png'

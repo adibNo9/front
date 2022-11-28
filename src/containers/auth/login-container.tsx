@@ -3,7 +3,7 @@ import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { ILoginStep, LoginStepContext } from 'src/pages/login'
+import { ILoginStep, LoginStepContext } from 'src/pages/auth'
 import styles from './FormTabs.module.scss'
 
 type FormData = {
