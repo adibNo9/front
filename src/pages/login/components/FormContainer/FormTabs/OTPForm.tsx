@@ -6,6 +6,11 @@ import styles from './FormTabs.module.scss'
 
 export default function OTPForm() {
   const [value, setValue] = useState<string>('')
+  const [error, setError] = useState<boolean>()
+
+  const validation = (validation: boolean) => {
+    setError(validation)
+  }
   return (
     <div className={styles['login-form-container']}>
       <MainText
@@ -15,6 +20,8 @@ export default function OTPForm() {
         children="کد تایید ارسال شد"
       />
       <MainOtp
+        validCode="12345"
+        validationFn={validation}
         seconds={15}
         onChange={value => {
           setValue(value)
