@@ -1,11 +1,14 @@
-import React, { useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import { reDigit } from '../constants'
 
 export const useLogic = (
   value: string,
   valueLength: number,
   onChange: (value: string) => void,
+  validationFn: (validation: boolean) => void,
+  validCode: string,
 ) => {
+  const [isValid, setIsValid] = useState<boolean>(true)
   const valueItems = useMemo(() => {
     const valueArray = value?.split('')
     const items: Array<string> = []
@@ -71,6 +74,15 @@ export const useLogic = (
       if (!isTargetValueDigit) {
         return
       }
+      if (!nextInputEl) {
+        target.blur()
+        validationFn?.(validCode === newValue)
+        if (validCode === newValue) {
+          setIsValid(true)
+        } else {
+          setIsValid(false)
+        }
+      }
 
       focusToNextInput(target)
     } else if (targetValueLength === valueLength) {
@@ -117,5 +129,12 @@ export const useLogic = (
     target.setSelectionRange(0, target.value.length)
   }
 
-  return { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus }
+  return {
+    valueItems,
+    inputOnChange,
+    inputOnKeyDown,
+    inputOnFocus,
+    validationFn,
+    isValid,
+  }
 }

@@ -1,4 +1,9 @@
 .otp-wrapper {
+  &.error-validation {
+    input {
+      @apply border-error focus:border-error;
+    }
+  }
   input {
     @apply bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput m-2 h-9 w-9 border-thin border-transparent focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
   }

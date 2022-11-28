@@ -3,13 +3,16 @@ import OtpTimer from 'otp-timer'
 
 import styles from './styles.module.scss'
 import { useLogic } from './hooks/useLogic'
+import classNames from 'classnames'
 
 export interface IOtp {
   seconds: number
   minutes?: number
   value: string
   valueLength: number
+  validCode: string
   onChange: (value: string) => void
+  validationFn: (validation: boolean) => void
   resendOtpCode?: () => void
 }
 
@@ -19,17 +22,22 @@ const MainOtp: React.FC<IOtp> = ({
   value,
   valueLength,
   onChange,
+  validCode,
+  validationFn,
   resendOtpCode,
 }) => {
-  const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus } = useLogic(
-    value,
-    valueLength,
-    onChange,
-  )
+  const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus, isValid } =
+    useLogic(value, valueLength, onChange, validationFn, validCode)
+  const errorValidation = classNames({
+    'error-validation': !isValid,
+  })
 
   return (
     <>
-      <div className={styles['otp-wrapper']} dir="ltr">
+      <div
+        className={[styles['otp-wrapper'], styles[errorValidation]].join(' ')}
+        dir="ltr"
+      >
         {valueItems.map((digit, idx) => (
           <input
             key={idx}
