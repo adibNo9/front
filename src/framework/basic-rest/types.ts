@@ -37,3 +37,7 @@ export type UserInfo = {
   sidebar_menu: any
   user: User
 }
+
+export type ReferralType = {
+  text: string
+}

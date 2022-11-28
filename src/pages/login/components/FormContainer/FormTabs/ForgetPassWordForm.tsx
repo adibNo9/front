@@ -1,7 +1,9 @@
 import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { ILoginStep, LoginStepContext } from 'src/pages/login'
 import styles from './FormTabs.module.scss'
 
 type FormData = {
@@ -18,9 +20,9 @@ export default function ForgetPassWordForm() {
   const onSubmit = handleSubmit(data => {
     //TODO login request
   })
-
+  const { setLoginStep } = useContext(LoginStepContext)
   return (
-    <div dir="rtl" className={styles['login-form-container']}>
+    <div className={styles['login-form-container']}>
       <MainText
         color="black"
         size="12px"
@@ -33,17 +35,24 @@ export default function ForgetPassWordForm() {
           label="کدملی"
           error={!!errors?.nationalCode}
           validationError={'لطفا کد ملی خود را وارد کنید'}
-          pattern="[0-9]"
+          regEx="^[0-9]*$"
+          maxLength={10}
+          customClassName={styles['forget-password-input']}
         />
       </form>
       <MainButton
         customClassName={styles['login-button']}
         type={ButtonType.textStruckDark}
         text="ارسال کد به تلفن همراه"
+        onClick={() => {
+          setLoginStep(ILoginStep.otp)
+        }}
       />
       <MainButton
         type={ButtonType.textIcon}
-        onClick={() => {}}
+        onClick={() => {
+          setLoginStep(ILoginStep.otp)
+        }}
         customClassName={styles['login-arrow-button']}
         iconName="arrow-left"
         text="ارسال کد به ایمیل"
