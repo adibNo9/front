@@ -7,7 +7,7 @@ import styles from './FormTabs.module.scss'
 export default function OTPForm() {
   const [value, setValue] = useState<string>('')
   return (
-    <div dir="rtl" className={styles['login-form-container']}>
+    <div className={styles['login-form-container']}>
       <MainText
         color="black"
         size="14px"
@@ -16,8 +16,8 @@ export default function OTPForm() {
       />
       <MainOtp
         seconds={15}
-        onChange={e => {
-          setValue(e?.target?.value)
+        onChange={value => {
+          setValue(value)
         }}
         resendOtpCode={() => {}}
         valueLength={5}

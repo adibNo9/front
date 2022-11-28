@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    #__next {
+        @apply h-full w-full flex;
+    }
+}
+
 @layer base {
   @font-face {
     font-family: yekanBakh;

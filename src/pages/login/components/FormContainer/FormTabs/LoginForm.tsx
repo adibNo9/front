@@ -1,7 +1,9 @@
 import MainInput from '@components/form/components/MainInput'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { ILoginStep, LoginStepContext } from 'src/pages/login'
 import styles from './FormTabs.module.scss'
 
 type FormData = {
@@ -10,6 +12,7 @@ type FormData = {
 }
 
 export default function LoginForm() {
+  const { setLoginStep } = useContext(LoginStepContext)
   const {
     register,
     handleSubmit,
@@ -20,20 +23,33 @@ export default function LoginForm() {
   })
 
   return (
-    <div dir="rtl" className={styles['login-form-container']}>
+    <div className={styles['login-form-container']}>
       <form onSubmit={onSubmit}>
         <MainInput
-          {...register('nationalCode', { required: true })}
+          {...register('nationalCode', {
+            required: 'لطفا کد ملی خود را وارد کنید',
+          })}
           label="کدملی"
           error={!!errors?.nationalCode}
-          validationError={'لطفا کد ملی خود را وارد کنید'}
-          pattern="[0-9]"
+          validationError={errors?.nationalCode?.message}
+          regEx="^[0-9]*$"
+          maxLength={10}
         />
         <MainInput
           {...register('password', { required: true })}
           label="رمزعبور"
           error={!!errors?.password}
+          type="password"
           validationError={'لطفا رمز عبور خود را وارد کنید'}
+          extraComponent={
+            <MainButton
+              type={ButtonType.text}
+              onClick={() => {
+                setLoginStep(ILoginStep.forgetPassWord)
+              }}
+              text="فراموشی رمز عبور"
+            />
+          }
         />
         <MainButton
           customClassName={styles['login-button']}
@@ -43,7 +59,7 @@ export default function LoginForm() {
       </form>
       <MainButton
         type={ButtonType.textIcon}
-        onClick={() => {}}
+        onClick={e => {}}
         customClassName={styles['login-arrow-button']}
         iconName="arrow-left"
         text=" ورود با رمز یکبار مصرف"

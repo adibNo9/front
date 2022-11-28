@@ -25,7 +25,7 @@
   }
   :global(.MuiBox-root) {
     &:global(.css-19kzrtu) {
-      @apply border-solid border-halfPx border-steelBlue -mt-px bg-white rounded-b-md shadow-formContainer;
+      @apply border-solid border-halfPx border-x-steelBlue -mt-px bg-white rounded-b-md shadow-formContainer;
     }
   }
 
@@ -34,6 +34,9 @@
       @apply flex flex-col items-center;
     }
     @apply flex flex-col items-center;
+  }
+  .forget-password-input{
+    @apply mt-10 mb-52
   }
   .login-button {
     @apply mt-10;
@@ -45,6 +48,6 @@
     @apply mt-9 mb-5
   }
 
-  @apply w-80 md:w-[544px];
+  @apply w-auto md:w-[544px];
   
 }
