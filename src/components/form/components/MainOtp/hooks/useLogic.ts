@@ -77,11 +77,7 @@ export const useLogic = (
       if (!nextInputEl) {
         target.blur()
         validationFn?.(validCode === newValue)
-        if (validCode === newValue) {
-          setIsValid(true)
-        } else {
-          setIsValid(false)
-        }
+        setIsValid(validCode === newValue)
       }
 
       focusToNextInput(target)
