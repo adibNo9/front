@@ -8,7 +8,6 @@ import otp from '@assets/images/otp.png'
 import signup from '@assets/images/signup.png'
 import { useRouter } from 'next/router'
 import { getDirection } from '@utils/get-direction'
-import classNames from 'classnames'
 
 export enum ILoginStep {
   login = 'login',
