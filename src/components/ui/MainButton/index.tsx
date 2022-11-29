@@ -63,7 +63,7 @@ const MainButton: React.FC<IMainButton> = ({
         disabled={disabled}
         onClick={onClick}
         className={styles['main-button']}
-        type='submit'
+        type="submit"
       >
         {text && hasText && (
           <span className={styles['main-button-text']}>{t(text)}</span>
