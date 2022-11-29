@@ -8,25 +8,26 @@ import Form from '@components/form/components/form'
 export default function LoginForm() {
   const { setLoginStep } = useContext(LoginStepContext)
 
-  const forgetPassWord = <MainButton
+  const forgetPassWord = (
+    <MainButton
       kind={ButtonKind.text}
       onClick={() => {
         setLoginStep(ILoginStep.forgetPassWord)
       }}
       text="فراموشی رمز عبور"
-  />
+    />
+  )
 
   const Schema = [
     {
       id: 'group-1',
       type: 'group',
-      className: 'w-1/2',
+      className: 'w-72 sm:w-96',
       elements: [
         {
           id: '1',
           name: 'nationalCode',
           value: '',
-          placeholder: 'کدملی',
           type: 'text',
           label: 'کدملی',
           validations: {
@@ -37,7 +38,8 @@ export default function LoginForm() {
             },
             maxLength: {
               value: 10,
-              message: 'forms.natiofsddsfso',
+              required: ' کد ملی باید 10 کاراکتر باشد',
+              message: '',
             },
           },
         },
@@ -45,7 +47,6 @@ export default function LoginForm() {
           id: '2',
           name: 'password',
           value: '',
-          placeholder: 'رمز عبور',
           type: 'password',
           label: 'رمز عبور',
           validations: {
@@ -63,15 +64,14 @@ export default function LoginForm() {
 
   return (
     <div className={styles['login-form-container']}>
-
-        <Form
-            formOptions={{
-              mode: 'onChange',
-            }}
-            schema={Schema}
-            onSubmit={handleSubmit}
-            primaryButton='ورود'
-        />
+      <Form
+        formOptions={{
+          mode: 'onChange',
+        }}
+        schema={Schema}
+        onSubmit={handleSubmit}
+        primaryButton="ورود"
+      />
       <MainText
         color="black"
         size="12px"
