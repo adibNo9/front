@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width: {
+        544: '544px',
+      },
       dropShadow: {
         xs: '-3px 4px 8px rgba(212, 226, 237, 0.8)',
       },
