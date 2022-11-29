@@ -7,6 +7,8 @@ import FormLabel from '@components/form/components/FormLabel'
 import FormHelper from '@components/form/components/FormHelper'
 import { useErrorMessage } from '@components/form/hooks/useErrorMessage'
 import FormError from '@components/form/components/FormError'
+import styles from './styles.module.scss'
+import classNames from 'classnames'
 
 export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
   const {
@@ -29,21 +31,33 @@ export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
     return shouldDisplay ? shouldDisplay(values) : true
   }, [values, shouldDisplay])
 
-  return isVisible
-    ? (
-    <div
-      className={`flex justify-between my-5 border-doted border-light-200 ${
-        className ?? ' '
-      }`}
-    >
-      <FormControl key={'eeee'}>
-        {!!label && (
-          <FormLabel name={name} key={'label-key' + name} label={label} />
-        )}
-        {extraComponent}
+  const errorStyle = classNames({
+    'validation-error': errorMessage,
+  })
+
+  const inputStyle = classNames({
+    'text-field': type !== 'checkbox',
+  })
+
+  const checkboxStyle = classNames({
+    'checkbox-field': type === 'checkbox',
+  })
+
+  return isVisible ? (
+    <FormControl className={errorStyle} key={'eeee'}>
+      <div
+        className={[styles['field-wrapper'], styles[checkboxStyle]].join(' ')}
+      >
+        <div className={styles[`label-wrapper`]}>
+          {!!label && (
+            <FormLabel name={name} key={'label-key' + name} label={label} />
+          )}
+          {extraComponent}
+        </div>
+
         <input
-            type={type}
-          className={className}
+          type={type}
+          className={[styles[inputStyle], className].join(' ')}
           placeholder={placeholder}
           {...register(name, {
             disabled: validations?.disabled,
@@ -58,9 +72,8 @@ export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
           })}
         />
         {!!helper && <FormHelper helper={helper} />}
-        <FormError error={errorMessage} />
-      </FormControl>
-    </div>
-      )
-    : null
+        <FormError className={errorStyle} error={errorMessage ?? 'error'} />
+      </div>
+    </FormControl>
+  ) : null
 }
