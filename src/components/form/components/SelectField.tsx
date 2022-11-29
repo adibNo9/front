@@ -29,9 +29,7 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
         )}
         {/* TODO [adib] update select input for style of options */}
         <select
-          className={[styles['select-field'], styles[className ?? '']].join(
-            ' ',
-          )}
+          className={[styles['select-field'], styles[className ?? '']].join(' ')}
           {...register(name, {
             disabled: validations?.disabled,
             max: validations?.max,

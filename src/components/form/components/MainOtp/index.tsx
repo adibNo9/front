@@ -14,14 +14,8 @@ export interface IOtp {
 }
 
 const MainOtp: React.FC<any> = ({ field }) => {
-  const {
-    seconds,
-    minutes,
-    value,
-    valueLength,
-    onChange,
-    resendOtpCode,
-  } = field
+  const { seconds, minutes, value, valueLength, onChange, resendOtpCode } =
+    field
   const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus } = useLogic(
     value.value,
     valueLength,
@@ -31,9 +25,9 @@ const MainOtp: React.FC<any> = ({ field }) => {
   return (
     <>
       <div className={styles['otp-wrapper']} dir="ltr">
-        {valueItems && valueItems.map((digit, idx) => (
+        {valueItems?.map((digit, idx) => (
           <input
-              required
+            required
             key={idx}
             type="text"
             inputMode="numeric"
