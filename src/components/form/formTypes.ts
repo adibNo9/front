@@ -1,6 +1,6 @@
 import { UseFormOptions } from 'react-hook-form'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
-import React from "react";
+import React from 'react'
 
 export interface FormConfig {
   id: string
@@ -65,7 +65,7 @@ interface FormController {
 
 export interface TextFieldType extends FieldElement, FormController {
   type: any
-  htmlInputType?: string,
+  htmlInputType?: string
   extraComponent?: React.ReactElement
 }
 export type Field = TextFieldType
@@ -88,3 +88,19 @@ export interface UploadFieldType extends FieldElement, FormController {
   uploadUrl?: string
 }
 export type Schema = Record<string, Field>
+
+export interface FormControlProps {
+  children: React.ReactNode
+  className?: string
+}
+
+export const selectFieldOptions = [
+  {
+    label: 'ابتدایی',
+    value: 0,
+  },
+  {
+    label: 'راهنمایی',
+    value: 1,
+  },
+]
