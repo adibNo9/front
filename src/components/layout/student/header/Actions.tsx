@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.module.scss'
-import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainButton, { ButtonKind } from '@components/ui/MainButton'
 
 const Actions: React.FC<{
   onAngleRight: () => void
@@ -12,27 +12,27 @@ const Actions: React.FC<{
   return (
     <div className={styles['header-actions']}>
       <MainButton
-        type={ButtonType.icon}
+        kind={ButtonKind.icon}
         onClick={onAngleRight}
         iconName="angle-right-1"
         iconCustomClassName={styles['icon']}
         customClassName={styles['icon-button']}
       />
       <MainButton
-        type={ButtonType.text}
+        kind={ButtonKind.text}
         text={'داناجو'}
         onClick={onLogoClick}
         customClassName={styles['danaju-logo']}
       />
       <MainButton
-        type={ButtonType.icon}
+        kind={ButtonKind.icon}
         onClick={onEnvelopeClick}
         iconName="envelope"
         iconCustomClassName={styles['icon']}
         customClassName={styles['icon-button']}
       />
       <MainButton
-        type={ButtonType.icon}
+        kind={ButtonKind.icon}
         onClick={onSearchClick}
         iconName="magnifying-glass"
         iconCustomClassName={styles['icon']}
