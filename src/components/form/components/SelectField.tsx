@@ -51,6 +51,7 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
           ))}
         </select>
         {!!helper && <FormHelper helper={helper} />}
+        {/* TODO [adib] edit showing error message without transparent color */}
         <FormError error={errorMessage ?? 'error'} />
       </div>
     </FormControl>
