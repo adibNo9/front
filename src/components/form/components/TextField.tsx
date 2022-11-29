@@ -45,6 +45,7 @@ export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
 
   return isVisible ? (
     <FormControl className={errorStyle} key={'eeee'}>
+      {/* TODO [adib] update checkbox styles */}
       <div
         className={[styles['field-wrapper'], styles[checkboxStyle]].join(' ')}
       >

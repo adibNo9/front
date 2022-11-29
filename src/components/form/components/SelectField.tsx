@@ -27,6 +27,7 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
         {!!label && (
           <FormLabel name={name} key={'label-key' + name} label={label} />
         )}
+        {/* TODO [adib] update select input for style of options */}
         <select
           className={[styles['select-field'], styles[className ?? '']].join(
             ' ',
