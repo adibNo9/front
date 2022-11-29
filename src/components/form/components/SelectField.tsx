@@ -6,6 +6,7 @@ import FormLabel from '@components/form/components/FormLabel'
 import FormHelper from '@components/form/components/FormHelper'
 import { useErrorMessage } from '@components/form/hooks/useErrorMessage'
 import FormError from '@components/form/components/FormError'
+import styles from './styles.module.scss'
 
 export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
   field,
@@ -20,21 +21,16 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
     return shouldDisplay ? shouldDisplay(values) : true
   }, [values, shouldDisplay])
 
-  return isVisible
-    ? (
-    <div
-      className={`flex flex-col w-full justify-between my-5 border-light-200 ${
-        className ?? ' '
-      }`}
-    >
-      <FormControl key={'eeee'}>
+  return isVisible ? (
+    <FormControl key={'eeee'}>
+      <div className={styles['field-wrapper']}>
         {!!label && (
           <FormLabel name={name} key={'label-key' + name} label={label} />
         )}
         <select
-          className={`flex border-2 border-gray-300 rounded-lg p-3 bg-none w-full ${
-            className ?? ' '
-          }`}
+          className={[styles['select-field'], styles[className ?? '']].join(
+            ' ',
+          )}
           {...register(name, {
             disabled: validations?.disabled,
             max: validations?.max,
@@ -53,10 +49,9 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
             </option>
           ))}
         </select>
-      </FormControl>
-      {!!helper && <FormHelper helper={helper} />}
-      <FormError error={errorMessage} />
-    </div>
-      )
-    : null
+        {!!helper && <FormHelper helper={helper} />}
+        <FormError error={errorMessage ?? 'error'} />
+      </div>
+    </FormControl>
+  ) : null
 }
