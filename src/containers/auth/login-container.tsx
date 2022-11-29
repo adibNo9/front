@@ -1,74 +1,82 @@
-import MainInput from '@components/ui/MainInput'
-import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainButton, { ButtonKind } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useContext } from 'react'
-import { useForm } from 'react-hook-form'
 import { ILoginStep, LoginStepContext } from 'src/pages/auth'
 import styles from './styles/style.module.scss'
-
-type FormData = {
-  nationalCode: number
-  password: number
-}
+import Form from '@components/form/components/form'
 
 export default function LoginForm() {
   const { setLoginStep } = useContext(LoginStepContext)
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>()
-  const onSubmit = handleSubmit(data => {
-    //TODO login request
-  })
+
+  const forgetPassWord = <MainButton
+      kind={ButtonKind.text}
+      onClick={() => {
+        setLoginStep(ILoginStep.forgetPassWord)
+      }}
+      text="فراموشی رمز عبور"
+  />
+
+  const Schema = [
+    {
+      id: 'group-1',
+      type: 'group',
+      className: 'w-1/2',
+      elements: [
+        {
+          id: '1',
+          name: 'nationalCode',
+          value: '',
+          placeholder: 'کدملی',
+          type: 'text',
+          label: 'کدملی',
+          validations: {
+            required: 'لطفا کد ملی خود را وارد کنید',
+            pattern: {
+              value: /^[0-9]*$/i,
+              message: 'forms.natioo',
+            },
+            maxLength: {
+              value: 10,
+              message: 'forms.natiofsddsfso',
+            },
+          },
+        },
+        {
+          id: '2',
+          name: 'password',
+          value: '',
+          placeholder: 'رمز عبور',
+          type: 'password',
+          label: 'رمز عبور',
+          validations: {
+            required: 'لطفا رمز عبور خود را وارد کنید',
+          },
+          extraComponent: forgetPassWord,
+        },
+      ],
+    },
+  ]
+
+  const handleSubmit = values => {
+    setLoginStep(ILoginStep.otp)
+  }
 
   return (
     <div className={styles['login-form-container']}>
-      <form onSubmit={onSubmit}>
-        <MainInput
-          {...register('nationalCode', {
-            required: 'لطفا کد ملی خود را وارد کنید',
-          })}
-          label="کدملی"
-          error={!!errors?.nationalCode}
-          validationError={errors?.nationalCode?.message}
-          regEx="^[0-9]*$"
-          maxLength={10}
+
+        <Form
+            formOptions={{
+              mode: 'onChange',
+            }}
+            schema={Schema}
+            onSubmit={handleSubmit}
+            primaryButton='ورود'
         />
-        <MainInput
-          {...register('password', { required: true })}
-          label="رمزعبور"
-          error={!!errors?.password}
-          type="password"
-          validationError={'لطفا رمز عبور خود را وارد کنید'}
-          extraComponent={
-            <MainButton
-              type={ButtonType.text}
-              onClick={() => {
-                setLoginStep(ILoginStep.forgetPassWord)
-              }}
-              text="فراموشی رمز عبور"
-            />
-          }
-        />
-        <MainButton
-          customClassName={styles['login-button']}
-          type={ButtonType.textStruckDark}
-          text="ورود"
-        />
-      </form>
-      <MainButton
-        type={ButtonType.textIcon}
-        onClick={e => {}}
-        customClassName={styles['login-arrow-button']}
-        iconName="arrow-left"
-        text=" ورود با رمز یکبار مصرف"
-      />
       <MainText
         color="black"
         size="12px"
         weight="bold"
-        children={`حساب کاربری ندارید؟ ثبت نام کنید و 7 روز اشتراک هدیه بگیرید`}
+        children={'حساب کاربری ندارید؟ ثبت نام کنید و 7 روز اشتراک هدیه بگیرید'}
       />
     </div>
   )

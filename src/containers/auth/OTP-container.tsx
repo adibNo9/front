@@ -1,11 +1,34 @@
 import { useState } from 'react'
-import MainOtp from '@components/form/components/MainOtp'
-import MainButton, { ButtonType } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import styles from './styles/style.module.scss'
+import Form from '@components/form/components/form'
 
 export default function OTPForm() {
   const [value, setValue] = useState<string>('')
+
+  const Schema = [
+    {
+      id: 'group-1',
+      type: 'group',
+      className: 'w-1/2',
+      elements: [
+        {
+          id: '1',
+          name: 'otp',
+          seconds: 15,
+          valueLength: 5,
+          type: 'otp',
+          onChange: (value:any) => {
+            setValue(value)
+          },
+          value: { value },
+        },
+      ],
+    },
+  ]
+  const handleSubmit = values => {
+    // setLoginStep(ILoginStep.otp)
+  }
   return (
     <div className={styles['login-form-container']}>
       <MainText
@@ -14,21 +37,14 @@ export default function OTPForm() {
         weight="bold"
         children="کد تایید ارسال شد"
       />
-      <MainOtp
-        seconds={15}
-        onChange={value => {
-          setValue(value)
-        }}
-        resendOtpCode={() => {}}
-        valueLength={5}
-        value={value}
-      />
-
-      <MainButton
-        customClassName={styles['login-button']}
-        type={ButtonType.textStruckDark}
-        text="ثبت و انتخاب رمز"
-      />
+        <Form
+            formOptions={{
+              mode: 'onChange',
+            }}
+            schema={Schema}
+            onSubmit={handleSubmit}
+            primaryButton='ثبت و انتخاب رمز'
+        />
     </div>
   )
 }

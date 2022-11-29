@@ -1,11 +1,12 @@
 import { UseFormOptions } from 'react-hook-form'
 import { RegisterOptions } from 'react-hook-form/dist/types/validator'
+import React from "react";
 
 export interface FormConfig {
   id: string
   type: any
   className?: string
-  name: string
+  name?: string
   elements?: FormConfig[]
 }
 
@@ -64,7 +65,8 @@ interface FormController {
 
 export interface TextFieldType extends FieldElement, FormController {
   type: any
-  htmlInputType?: string
+  htmlInputType?: string,
+  extraComponent?: React.ReactElement
 }
 export type Field = TextFieldType
 export interface TextAreaFieldType extends FieldElement, FormController {

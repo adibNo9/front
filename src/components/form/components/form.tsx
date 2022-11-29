@@ -3,32 +3,30 @@ import { useForm, FormProvider } from 'react-hook-form'
 
 import { FormConfig, FormProps } from '@components/form/formTypes'
 import FormGroup from '@components/form/components/FormGroup'
-import { UploadField } from '@components/form/components/UploadField'
 import { SelectField } from '@components/form/components/SelectField'
-import { DateField } from '@components/form/components/DateField'
 import { TextAreaField } from '@components/form/components/TextAreaField'
-import ShopIcon from '@components/icons/shop/shop-icon'
 import FormSection from '@components/form/components/FormSection'
 import { TextField } from './TextField'
+import MainButton, { ButtonKind } from "@components/ui/MainButton";
+import MainOtp from "@components/form/components/MainOtp";
 
 const getFormElement = (type: string) => {
   let Component: any = null
 
   switch (type) {
     case 'text':
+    case 'password':
+    case 'checkbox':
       Component = TextField
+      break
+    case 'otp':
+      Component = MainOtp
       break
     case 'textarea':
       Component = TextAreaField
       break
-    case 'upload':
-      Component = UploadField
-      break
     case 'select':
       Component = SelectField
-      break
-    case 'date':
-      Component = DateField
       break
     default:
       break
@@ -66,13 +64,14 @@ const Form: React.FC<FormProps> = ({
           {formElements}
         </div>
 
-        <button
-          className={buttonClass || 'w-full flex p-3 shop-btn-submit'}
-          type="submit"
-        >
-          <ShopIcon />
-          <span className="pr-3 text-lg font-bold">{primaryButton}</span>
-        </button>
+        <MainButton
+            customClassName={buttonClass}
+            type="submit"
+            kind={ButtonKind.textStruckDark}
+            text={primaryButton}
+        />
+
+
         {secondaryButton && (
           <button type="button" onClick={onSecondaryButtonClick}>
             {secondaryButton}
