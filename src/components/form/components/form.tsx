@@ -7,8 +7,8 @@ import { SelectField } from '@components/form/components/SelectField'
 import { TextAreaField } from '@components/form/components/TextAreaField'
 import FormSection from '@components/form/components/FormSection'
 import { TextField } from './TextField'
-import MainButton, { ButtonKind } from "@components/ui/MainButton";
-import MainOtp from "@components/form/components/MainOtp";
+import MainButton, { ButtonKind } from '@components/ui/MainButton'
+import MainOtp from '@components/form/components/MainOtp'
 
 const getFormElement = (type: string) => {
   let Component: any = null
@@ -52,25 +52,16 @@ const Form: React.FC<FormProps> = ({
     <FormProvider {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className={rootClass || 'md:w-2/3 w-full'}
+        className={rootClass || 'w-full'}
       >
-        <div
-          className={
-            parentClass
-              ? 'flex flex-col mb-4'
-              : 'flex flex-col md:flex-row mb-4'
-          }
-        >
-          {formElements}
-        </div>
+        {formElements}
 
         <MainButton
-            customClassName={buttonClass}
-            type="submit"
-            kind={ButtonKind.textStruckDark}
-            text={primaryButton}
+          customClassName={buttonClass}
+          type="submit"
+          kind={ButtonKind.textStruckDark}
+          text={primaryButton}
         />
-
 
         {secondaryButton && (
           <button type="button" onClick={onSecondaryButtonClick}>

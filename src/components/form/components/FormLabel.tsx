@@ -1,12 +1,9 @@
 import React, { FC } from 'react'
+import styles from './styles.module.scss'
 
 const FormLabel: FC<any> = ({ label, name }) => {
   return (
-    <label
-      key={name}
-      htmlFor={name}
-      className="text-brand-main bg-white absolute -top-3 right-4 text-md px-1 z-40"
-    >
+    <label key={name} htmlFor={name} className={styles['form-label']}>
       {label}
     </label>
   )
