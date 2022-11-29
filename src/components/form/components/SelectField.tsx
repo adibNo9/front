@@ -8,10 +8,11 @@ import { useErrorMessage } from '@components/form/hooks/useErrorMessage'
 import FormError from '@components/form/components/FormError'
 import styles from './styles.module.scss'
 
+
 export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
   field,
 }) => {
-  const { name, className, label, helper, shouldDisplay, validations } = field
+  const { name, className, label, helper, shouldDisplay, validations, options } = field
 
   const { register, watch } = useFormContext()
   const errorMessage = useErrorMessage(name)
@@ -42,7 +43,7 @@ export const SelectField: React.FC<FieldProps<SelectFieldType>> = ({
             onChange: field.onChange,
           })}
         >
-          {field.options?.map((option: { value: any; label: any }) => (
+          {options?.map((option: { value: any; label: any }) => (
             <option key={option.value} value={option.value}>
               {option.label || option.value}
             </option>

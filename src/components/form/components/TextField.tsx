@@ -57,6 +57,7 @@ export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
         </div>
 
         <input
+          dir='auto'
           type={type}
           className={[styles[inputStyle], className].join(' ')}
           placeholder={placeholder}
