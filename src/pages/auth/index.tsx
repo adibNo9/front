@@ -31,8 +31,8 @@ const FormLayout: React.FC = () => {
   const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
   const isImageBottomAlignment =
     loginStep === ILoginStep.changePassword ||
-    loginStep === ILoginStep.forgetPassWord ||  
-    loginStep === ILoginStep.otp 
+    loginStep === ILoginStep.forgetPassWord ||
+    loginStep === ILoginStep.otp
   const { locale } = useRouter()
   const dir = getDirection(locale)
   return (

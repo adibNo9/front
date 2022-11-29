@@ -1,5 +1,5 @@
 import MainInput from '@components/ui/MainInput'
-import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainButton, { ButtonKind } from '@components/ui/MainButton'
 import MainText from '@components/ui/MainText'
 import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
@@ -42,14 +42,14 @@ export default function ForgetPassWordForm() {
       </form>
       <MainButton
         customClassName={styles['login-button']}
-        type={ButtonType.textStruckDark}
+        kind={ButtonKind.textStruckDark}
         text="ارسال کد به تلفن همراه"
         onClick={() => {
           setLoginStep(ILoginStep.otp)
         }}
       />
       <MainButton
-        type={ButtonType.textIcon}
+        kind={ButtonKind.textIcon}
         onClick={() => {
           setLoginStep(ILoginStep.otp)
         }}
