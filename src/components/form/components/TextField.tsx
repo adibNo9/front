@@ -75,7 +75,7 @@ export const TextField: React.FC<FieldProps<TextFieldType>> = ({ field }) => {
         />
         {!!helper && <FormHelper helper={helper} />}
         {/* TODO [adib] edit showing error message without transparent color */}
-        <FormError className={errorStyle} error={errorMessage ?? 'error'} />
+        <FormError error={errorMessage ?? ''} />
       </div>
     </FormControl>
   ) : null

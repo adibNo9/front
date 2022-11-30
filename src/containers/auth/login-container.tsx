@@ -22,7 +22,7 @@ export default function LoginForm() {
     {
       id: 'group-1',
       type: 'group',
-      className: 'w-72 sm:w-96',
+      className: 'w-72 sm:w-96 mb-8',
       elements: [
         {
           id: '1',

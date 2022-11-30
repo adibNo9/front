@@ -1,12 +1,9 @@
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
 
-const FormError: FC<any> = ({ className, error }) => {
-  {
-    /* TODO [adib] edit showing error message without transparent color */
-  }
+const FormError: FC<any> = ({ error }) => {
   return (
-    <p className={[styles['form-error'], styles[className]].join(' ')}>
+    <p className={styles['form-error']}>
       {error}
     </p>
   )
