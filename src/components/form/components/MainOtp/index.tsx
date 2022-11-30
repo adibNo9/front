@@ -3,13 +3,14 @@ import OtpTimer from 'otp-timer'
 
 import styles from './styles.module.scss'
 import { useLogic } from './hooks/useLogic'
+import classNames from 'classnames'
 
 export interface IOtp {
-  seconds: number
-  minutes?: number
   value: string
   valueLength: number
+  validCode: string
   onChange: (value: string) => void
+  validationFn: (validation: boolean) => void
   resendOtpCode?: () => void
 }
 
