@@ -68,8 +68,8 @@ const Carousel: React.FunctionComponent<CarouselPropsType> = ({
         navigation={navigation}
         {...props}
       >
-        {children}
       </Swiper>
+
     </div>
   )
 }

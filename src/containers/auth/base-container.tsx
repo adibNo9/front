@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { useLogic } from './useLogic'
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
-import { ILoginStep } from 'src/pages/login'
-import ForgetPassWordForm from './ForgetPassWordForm'
-import OTPForm from './OTPForm'
+import { useLogic } from './hooks/useLogic'
+import LoginForm from './login-container'
+import RegisterForm from './register-container'
+import { ILoginStep } from 'src/pages/auth'
+import ForgetPassWordForm from './forget-password-container'
+import OTPForm from './OTP-container'
 import dynamic from 'next/dynamic'
+import { Itabs } from '@components/ui/MainTab'
 
 const MainTab = dynamic(() => import('@components/ui/MainTab'), {
   ssr: false,
@@ -13,12 +14,12 @@ const MainTab = dynamic(() => import('@components/ui/MainTab'), {
 const FormTabs: React.FC = () => {
   const { value, register, login, handleChange, getTabProps, loginStep } =
     useLogic()
-  const tabs = [
+  const tabs:Itabs[] = [
     {
       label: "ورود",
       Component: (
          <>{loginStep === ILoginStep.login && <LoginForm />}
-        {loginStep === ILoginStep.changePassword && <ForgetPassWordForm />}
+        {loginStep === ILoginStep.forgetPassWord && <ForgetPassWordForm />}
         {loginStep === ILoginStep.otp && <OTPForm />}</>
       ),
 

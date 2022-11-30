@@ -1,0 +1,41 @@
+.form-control {
+  .field-wrapper {
+    &.validation-error {
+      .label-wrapper {
+        .form-label {
+          @apply text-error;
+        }
+      }
+      .text-field {
+        @apply border-thin border-solid shadow-red-100 border-error focus:border-error;
+      }
+    }
+    &.checkbox-field {
+      .form-error {
+        @apply w-full;
+      }
+      @apply flex flex-wrap flex-row-reverse justify-end;
+    }
+    .label-wrapper {
+      .form-label {
+        @apply mr-1 text-daphne;
+      }
+      @apply flex justify-between;
+    }
+    .form-error {
+      @apply text-xs text-error m-1 pr-3;
+    }
+    .form-label {
+      @apply mr-1 text-daphne;
+    }
+    .text-field {
+      @apply w-full bg-deutziaWhite text-center text-steelBlue text-sm rounded-md shadow-textInput border-thin border-transparent  pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
+    }
+
+    .select-field {
+      @apply w-full bg-deutziaWhite text-center after:content-none text-steelBlue text-sm rounded-md shadow-textInput border-thin border-transparent pl-2 pb-0 h-7 focus-visible:outline-none focus:border-thin focus:border-daphne focus:border-solid;
+    }
+    @apply w-full h-20;
+  }
+  @apply flex flex-col;
+}

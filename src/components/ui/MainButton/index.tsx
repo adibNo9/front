@@ -11,7 +11,7 @@ import MainIcon from '../MainIcon'
  * const hasIcon = type?.includes('icon')
  * const hasText = type?.includes('text')
  */
-export enum ButtonType {
+export enum ButtonKind {
   text = 'text-button',
   textIcon = 'text-icon-button',
   textStruckDark = 'text-struck-dark-button',
@@ -22,7 +22,8 @@ export enum ButtonType {
 }
 
 export interface IMainButton {
-  type: ButtonType
+  kind: ButtonKind
+  type?: 'button' | 'submit' | 'reset' | undefined
   iconName?: string
   text?: string
   customClassName?: string
@@ -34,6 +35,7 @@ export interface IMainButton {
 const MainButton: React.FC<IMainButton> = ({
   onClick,
   type,
+  kind,
   iconName,
   text,
   disabled,
@@ -42,18 +44,17 @@ const MainButton: React.FC<IMainButton> = ({
 }) => {
   /******************************* CONSTANTS *********************************************/
   const { t } = useTranslation()
-  const hasIcon = type?.includes('icon')
-  const hasText = type?.includes('text')
+  const hasIcon = kind?.includes('icon')
+  const hasText = kind?.includes('text')
   const disabledCLassName = classNames({
     'disabled-button': disabled,
   })
-
   /******************************* ELEMENTS *********************************************/
   return (
     <div
       className={[
         styles[`main-button-wrapper`],
-        styles[type],
+        styles[kind],
         styles[disabledCLassName],
         customClassName,
       ].join(' ')}
@@ -62,7 +63,7 @@ const MainButton: React.FC<IMainButton> = ({
         disabled={disabled}
         onClick={onClick}
         className={styles['main-button']}
-        type="button"
+        type="submit"
       >
         {text && hasText && (
           <span className={styles['main-button-text']}>{t(text)}</span>

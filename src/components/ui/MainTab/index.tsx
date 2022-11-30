@@ -1,22 +1,25 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import styles from './styles.module.scss'
-import React from 'react';
+import React, { ReactNode, SyntheticEvent } from 'react';
 import TabPanel from "../TabPanel";
 
 export enum TabType {
     twixTab = 'twixTab',
     pillTab ='pillTab'
   }
- 
+  export interface Itabs {
+    label: string
+   Component:ReactNode
+  }
   export interface IMainTab {
-    type: TabType
-    tabs:{ label: string, Component: string }[]| undefined
+    type?: TabType
+    tabs: Itabs[]
     variant?: "fullWidth" | "standard" | "scrollable" | undefined
     value: number
     disabled?: boolean
     onClick?: () => void
-    className:string
-    onChange?: () => void
+    className?:string
+    onChange?: (event: SyntheticEvent, newValue: number) => void 
   }
   function MainTab({onChange,value,variant,tabs}:IMainTab) {
 

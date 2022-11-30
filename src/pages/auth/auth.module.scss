@@ -1,0 +1,15 @@
+.form-layout-container {
+  main {
+    :global(.styles_twixTab__QtQ3x) {
+      @apply m-auto w-80 sm:w-544;
+    }
+    @apply w-full lg:w-2/5 mx-auto p-14;
+  }
+  .form-image-wrapper {
+    &.image-bottom-alignment {
+      @apply items-end pb-0;
+    }
+    @apply hidden py-14 lg:w-3/5 lg:px-14 lg:visible lg:flex lg:flex-1 lg:justify-center lg:items-center  md:px-6 sm:px-20 xs:px-5;
+  }
+  @apply flex w-full h-full m-0;
+}
