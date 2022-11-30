@@ -1,4 +1,4 @@
-//@ts-ignore
+// @ts-ignore
 import OtpTimer from 'otp-timer'
 
 import styles from './styles.module.scss'
@@ -14,30 +14,21 @@ export interface IOtp {
   resendOtpCode?: () => void
 }
 
-const MainOtp: React.FC<IOtp> = ({
-  value,
-  valueLength,
-  onChange,
-  validCode,
-  validationFn,
-  resendOtpCode,
-}) => {
-  const seconds = process.env.NEXT_PUBLIC_REST_API_ENDPOINT
-  const minutes = process.env.OTP_TIMER_MINUTES
-  const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus, isValid } =
-    useLogic(value, valueLength, onChange, validationFn, validCode)
-  const errorValidation = classNames({
-    'error-validation': !isValid,
-  })
-
+const MainOtp: React.FC<any> = ({ field }) => {
+  const { seconds, minutes, value, valueLength, onChange, resendOtpCode } =
+    field
+  const { valueItems, inputOnChange, inputOnKeyDown, inputOnFocus } = useLogic(
+    value.value,
+    valueLength,
+    onChange,
+  )
+  console.log(seconds, valueLength, valueItems)
   return (
     <>
-      <div
-        className={[styles['otp-wrapper'], styles[errorValidation]].join(' ')}
-        dir="ltr"
-      >
-        {valueItems.map((digit, idx) => (
+      <div className={styles['otp-wrapper']} dir="ltr">
+        {valueItems?.map((digit, idx) => (
           <input
+            required
             key={idx}
             type="text"
             inputMode="numeric"

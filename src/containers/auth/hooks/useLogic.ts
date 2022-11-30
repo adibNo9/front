@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState, useContext } from 'react'
 import { useTranslation } from 'next-i18next'
-import { ILoginStep, LoginStepContext } from 'src/pages/login'
+import { ILoginStep, LoginStepContext } from 'src/pages/auth'
 
 export const useLogic = () => {
   const { setLoginStep, loginStep } = useContext(LoginStepContext)
@@ -34,3 +34,4 @@ export const useLogic = () => {
     loginStep,
   }
 }
+

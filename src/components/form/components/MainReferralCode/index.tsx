@@ -1,7 +1,7 @@
 import { ChangeEvent, FocusEvent, FC } from 'react'
 import MainButton, { ButtonType } from '@components/ui/MainButton'
 import { ReferralType } from '@framework/types'
-import MainInput from '@components/form/components/MainInput/index'
+import MainInput from '@components/ui/MainInput/index'
 import { useLogic } from './hooks/useLogic'
 import styles from './styles.module.scss'
 

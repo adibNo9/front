@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import FormContainer from './components/FormContainer/FormTabs'
-import styles from './FormLayout.module.scss'
+import FormContainer from '../../containers/auth/base-container'
+import styles from './auth.module.scss'
 import login from '@assets/images/login.png'
 import changePassword from '@assets/images/changePassword.png'
 import otp from '@assets/images/otp.png'
@@ -31,7 +31,8 @@ const FormLayout: React.FC = () => {
   const [loginStep, setLoginStep] = useState<ILoginStep>(ILoginStep.login)
   const isImageBottomAlignment =
     loginStep === ILoginStep.changePassword ||
-    loginStep === ILoginStep.forgetPassWord
+    loginStep === ILoginStep.forgetPassWord ||
+    loginStep === ILoginStep.otp
   const { locale } = useRouter()
   const dir = getDirection(locale)
   return (

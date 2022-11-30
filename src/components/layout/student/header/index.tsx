@@ -1,7 +1,7 @@
 import React from 'react'
 import Actions from './Actions'
 import StudentProfile from './StudentProfile'
-import MainButton, { ButtonType } from '@components/ui/MainButton'
+import MainButton, { ButtonKind } from '@components/ui/MainButton'
 import styles from './styles.module.scss'
 
 const MainHeader: React.FC = () => {
@@ -28,7 +28,7 @@ const MainHeader: React.FC = () => {
         </div>
         <div className={styles['header-item-profile']}>
           <MainButton
-            type={ButtonType.smallTextStruckDark}
+            kind={ButtonKind.smallTextStruckDark}
             onClick={buyButtonHandler}
             text={'خرید اشتراک'}
             customClassName={styles['buy-button']}

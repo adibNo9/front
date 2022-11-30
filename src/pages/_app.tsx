@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
@@ -7,7 +7,6 @@ import { Hydrate } from 'react-query/hydration'
 import { ToastContainer } from 'react-toastify'
 import { appWithTranslation } from 'next-i18next'
 
-import ManagedDrawer from '@components/common/drawer/managed-drawer'
 import { DefaultSeo } from '@components/common/default-seo'
 
 // Load Open Sans and satisfy typeface font
@@ -91,7 +90,6 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
               </Layout>
             )}
 
-            <ManagedDrawer />
           </Hydrate>
           {/* <ReactQueryDevtools /> */}
         </QueryClientProvider>
