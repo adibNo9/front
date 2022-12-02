@@ -4,7 +4,7 @@
 
 @layer components {
   #__next {
-    @apply h-full w-full flex;
+    @apply h-full w-full;
   }
   input {
     appearance: none;
