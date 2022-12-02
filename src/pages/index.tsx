@@ -1,9 +1,13 @@
-import FormLayout from '@components/layout/form'
+import Comments from '@components/ui/Comments'
 import React from 'react'
-import LoginForm from './Login/LoginForm'
 
 const index = () => {
-  return <div> </div>
+  return (
+    <div>
+      {' '}
+      <Comments currentUserId="1" />
+    </div>
+  )
 }
 
 export default index
