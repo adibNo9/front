@@ -26,6 +26,10 @@ const CommentForm: FC<ICommnetFrom> = ({
     setText('')
   }
 
+  const submitHnadler = () => {
+    handleSubmit(text, null)
+  }
+
   const Schema = [
     {
       id: 'group-1',
@@ -35,7 +39,7 @@ const CommentForm: FC<ICommnetFrom> = ({
         {
           id: '1',
           name: 'comment',
-          value: '',
+          value: text,
           type: 'textarea',
           label: 'دیدگاه خود را بنویسید',
         },
@@ -47,11 +51,11 @@ const CommentForm: FC<ICommnetFrom> = ({
     <>
       <Form
         schema={Schema}
-        onSubmit={handleSubmit}
-        primaryButton="ارسال دیدگاه"
+        onSubmit={submitHnadler}
+        primaryButton={submitLabel}
         buttonClass={styles['comment-form-button comment-form-cancel-button']}
       />
-      <form onSubmit={onSubmit}>
+      {/* <form onSubmit={onSubmit}>
         <textarea
           className={styles['comment-form-textarea']}
           value={text}
@@ -72,7 +76,7 @@ const CommentForm: FC<ICommnetFrom> = ({
             Cancel
           </button>
         )}
-      </form>
+      </form> */}
     </>
   )
 }
